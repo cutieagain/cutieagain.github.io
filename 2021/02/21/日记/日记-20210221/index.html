@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Java1期第一课补充笔记, 欧葵小站">
+    <meta name="keywords" content="日记20210221, 欧葵小站">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Java1期第一课补充笔记 | 欧葵小站</title>
+    <title>日记20210221 | 欧葵小站</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -312,12 +312,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Java1期第一课补充笔记</h1>
+                    <h1 class="description center-align post-title">日记20210221</h1>
                 </div>
             </div>
         </div>
@@ -433,20 +433,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4/">
-                                <span class="chip bg-color">极客时间</span>
-                            </a>
-                        
-                            <a href="/tags/%E7%A7%A6%E9%87%91%E5%8D%AB/">
-                                <span class="chip bg-color">秦金卫</span>
-                            </a>
-                        
-                            <a href="/tags/%E6%9E%81%E5%AE%A2%E5%A4%A7%E5%AD%A6/">
-                                <span class="chip bg-color">极客大学</span>
-                            </a>
-                        
-                            <a href="/tags/Java-%E8%BF%9B%E9%98%B6%E8%AE%AD%E7%BB%83%E8%90%A5/">
-                                <span class="chip bg-color">Java 进阶训练营</span>
+                            <a href="/tags/%E6%97%A5%E8%AE%B0/">
+                                <span class="chip bg-color">日记</span>
                             </a>
                         
                     </div>
@@ -457,8 +445,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/java/" class="post-category">
-                                java
+                            <a href="/categories/%E6%97%A5%E8%AE%B0/" class="post-category">
+                                日记
                             </a>
                         
                     </div>
@@ -470,28 +458,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-02-19
+                    2021-02-21
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-02-19
+                    2021-02-21
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    9
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    1 分
                 </div>
                 
 
@@ -514,60 +502,18 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>学习理论说，仅仅听讲只能获得知识的5-10%，只有经过实践和思考，才能变成你的经验。</p>
-<p>1）一定要看预习材料，那是我和铁锚老师的jvm书稿的一部分，很详细。</p>
-<p>2）课上的两个小时是帮大家组织起技术体系，带大家操作演示。</p>
-<p>3）课后动手实践，按课上的演练自己是实验，最后完成必做作业。</p>
-<h2 id="1、字节码"><a href="#1、字节码" class="headerlink" title="1、字节码"></a>1、字节码</h2><p>字节码的本质是java代码编译后的，给jvm虚拟机运行的操作指令。</p>
-<h3 id="学习目标"><a href="#学习目标" class="headerlink" title="学习目标"></a>学习目标</h3><p>字节码不需要全部掌握，大家明白原理就好，面试一般问的也不会太多。</p>
-<p>比如 0: new #2</p>
-<p>表示的是本块代码的第一个指令是new 一个常量池里的第二个常量代表的类型的实例。</p>
-<p>其中new的操作码二进制是bb，操作数是2，那么用二进制表示这条指令就是3个字节：bb 00 02，补上一个00是因为new后面跟两个操作数。（大家想想为什么需要2个操作数？ ）</p>
-<h3 id="学以致用"><a href="#学以致用" class="headerlink" title="学以致用"></a>学以致用</h3><p>了解字节码有两个用途：</p>
-<p>1）能够了解底层jvm执行的是什么，可以用来分析不同代码是否是等价的，如果不等价哪个方式更好。</p>
-<p>比如for循环里用i++还是for(i:数组) 。通过课上的演示，我们知道他们是等价的。（大家想想，如果for : 里不是数组，而是list，字节码会怎么样？）</p>
-<p>比如String a = “a” + “b”; String c = a + “c”; 通过字节码分析，我们知道：</p>
-<p>编译后”a” + “b”直接变成了“ab”，相当于 a =“ab”；</p>
-<p>字符串String作为一个类，是不能做+操作的，所以在字节码层面，都转换成了StringBuilder的append操作，上面的代码相当于String c = new StringBuilder().append(“ab”).append(“c”).toString(); </p>
-<p>2）后面学习AOP的时候，有一大块是字节码操作和增强，这里的内容是那一部分的基础。</p>
-<h2 id="2、类加载器（☆重点）"><a href="#2、类加载器（☆重点）" class="headerlink" title="2、类加载器（☆重点）"></a>2、类加载器（☆重点）</h2><p>类加载器负责把字节码文件或字节码的byte[]转换成为jvm中的类。</p>
-<h3 id="学习目标-1"><a href="#学习目标-1" class="headerlink" title="学习目标"></a>学习目标</h3><p>理解类加载器的原理和作用，加载时机，三类类加载器。</p>
-<p>三个特性：双亲委托，加载依赖，类型缓存。</p>
-<p>知道如何给项目程序添加依赖的jar或路径。</p>
-<p>了解URLClassLoader的作用和跟扩展类加载器、应用类加载器的关系。</p>
-<p>学会自定义简单的classloader。</p>
-<h3 id="学以致用-1"><a href="#学以致用-1" class="headerlink" title="学以致用"></a>学以致用</h3><p>注意：JDK9里扩展类加载器和应用类加载器，不再继承URLClassLoader。</p>
-<p>但是可以这些主动加载： Class.forName(“xxx”, new URLClassloader(“dddd”));</p>
-<p>了解类加载器有几个用途：</p>
-<p>1）能够清楚知道字节码是如何加载的；</p>
-<p>2）能够分析程序加载了那些jar或路径，从而排查找不到类的错误问题；如果遇到了找不到方法或方法参数不匹配的错误问题，说明加载了错误版本的jar，也可以用相同方法排查；</p>
-<p>3）可以实现自定义classloader，做加密、混淆等，保护我们的jar包不被反编译和破解；实际上通过自定义classloader，我们在类加载到jvm的时候可以做一些额外的处理（想想是不是跟AOP有点像？）；</p>
-<p>4）早期实现动态加载，模块化都是基于自定义classloader的，如果我们实现两个自定义classloader，比如A和B，他们没有关系，且各自加载了一个叫Hello的类，这两个Hello的类型是不同的，这样就可以实现不同版本的类隔离（如果代码写的不恰当，也可能会出现所谓A的一个Hello类的实例，运行时做类型转换无法转换成B的Hello类型的错误）；</p>
-<p>5）作业必做题与此相关。</p>
-<p>需要注意的是：jdk代码里写死了，不允许自定义classloader加载以java.开头包名的类。</p>
-<h2 id="3、Java内存模型（☆重点）"><a href="#3、Java内存模型（☆重点）" class="headerlink" title="3、Java内存模型（☆重点）"></a>3、Java内存模型（☆重点）</h2><p>类被加载到JVM中，代码运行时都需要使用内存，所以Java内存模型就是用来规定JVM内部的内存结构。</p>
-<h3 id="学习目标-2"><a href="#学习目标-2" class="headerlink" title="学习目标"></a>学习目标</h3><p>了解栈、堆、非堆、堆外等内存，以及它们的关系和区别。</p>
-<p>了解栈的结构，可以跟前面字节码执行对应起来。</p>
-<p>了解堆的结构，新生代young gen，老年代old gen，新生代又包括eden和s0、s1</p>
-<p>了解非堆和堆外是用来做什么的。</p>
-<h3 id="学以致用-2"><a href="#学以致用-2" class="headerlink" title="学以致用"></a>学以致用</h3><p>了解内存模型有几个用途：</p>
-<p>1）这一块是下一节课讲的GC的基础，也是第三个模块讲并发编程的基础，这一块熟悉了有利于学习GC和并发；</p>
-<p>2）面试经常会被问到这个问题；</p>
-<p>3）作业必做题与这一块有直接关系，多动手画一画，有助于面试时能比较好的讲清楚。</p>
-<h2 id="4、命令行参数"><a href="#4、命令行参数" class="headerlink" title="4、命令行参数"></a>4、命令行参数</h2><p>JVM作为一个通用的虚拟计算机，是通过java命令来启动的，为了让JVM能够适应不同的需求环境，所以需要配置不同的参数使JVM更好的工作，这就是java命令执行的命令行参数。</p>
-<h3 id="学习目标-3"><a href="#学习目标-3" class="headerlink" title="学习目标"></a>学习目标</h3><p>常用的命令行参数有哪些？</p>
-<p>标准参数 -server</p>
-<p>非标准参数 -Xmx，-XX：xxxx=yyyy</p>
-<p>系统属性-Dxxx=yyy</p>
-<h3 id="学以致用-3"><a href="#学以致用-3" class="headerlink" title="学以致用"></a>学以致用</h3><p>jvm内存配置经验：xmx ~ 不要超过系统可用内存的60-80%</p>
-<p>例如 系统有4g可用内存 -&gt; 4g*0.6<del>0.8 -&gt; 可以设置xmx为2.4</del>3.2g</p>
-<p>java参数目前有1000多个，其中GC相关的占一大半。具体参数相关的一些问题，我们下节课继续讲。</p>
-<h2 id="5、课堂答疑"><a href="#5、课堂答疑" class="headerlink" title="5、课堂答疑"></a>5、课堂答疑</h2><p>其他的问题整理与回答：</p>
-<p><a target="_blank" rel="noopener" href="https://shimo.im/docs/rcxYt6PtQgkkyd8h">https://shimo.im/docs/rcxYt6PtQgkkyd8h</a></p>
-<h2 id="6、其他资料"><a href="#6、其他资料" class="headerlink" title="6、其他资料"></a>6、其他资料</h2><p>官方对JDK/JRE、classloader和一些工具的说明：<a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/tools/windows/toc.html">https://docs.oracle.com/javase/8/docs/technotes/tools/windows/toc.html</a></p>
-<p><img src="https://cdn.jsdelivr.net/gh/cutieagain/images@main/20210219092358.png!thumbnail" alt="img"></p>
-<p>上图来源于：<a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/">https://docs.oracle.com/javase/8/docs/</a></p>
-
+                <div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="33cc73a5f8d2549e6c89dfe333dc5a8460b687d0ee7ac5b199010aefe4063273">675ef3242d144ff249cb5b90ca678376166165578abddbd822aecd43a16808c1e034c13215e1aa5d1915b7f1e9fa7947bede05dfbe49d081f4154959ab3872efb169caf5ade0e9eeaf5d9a758d0e48ed1803dc65d8fc0cceeb76aa9637b66728172d393504be71d92bdb4e0e4887dd97bdc55164377c8a3fcae04a8d23a48ed724d6d6394e498ab93c2a946db359dbb0afcd6c92b3c59840c3ec48935e3b6f1bc603e359a73e1a4c9b8d4e878b1fdb7c8d5b84fe05e59f5621948662e3f34479ca6d6f0698e95bd3955f78072d48f1b1aab8ba57ef27afe498a7b3afb47ee9951127d68bb220856a24622f8a35c3dfe84f1fb44ef1f45602a606a0b1b577c36463b9f7664c86629d66a91aa6702f1504501602420e7b793e5242c7cdc9c1f2ab7d9eeb5d79f29c39b78f28425442af2a5fd6dad331b4cac420bbd7f8806cf4e665db82343160921fe5d936bbec336ed2938b9ee029c747396fa4c60a8f019422286226041fd913af8558fec507cf56232fc39b14a5645ec033e74ccfdb3413dc138d4d2ca5ad884fe456ec423549c003255cddd007eb0545b67645a86a8ec7bf9522b01ace7ae25f0241696fad5fc6d4f66c16f00e460614aacbc4c0c98ebf0fbe15d8d513fa1dcf2ad8910c354669a48bdb5e0581261b6e5661f672793e0bb91b5cabbf26d0558ee44e2616ac12cb502df8a9821ab4782fc3d3660a0f8f7549292ebf79c348a36835b852132d376fa941c7a19f411e894d0f83317b65881d694add538421131e51decb60a75b5314a1268afe9996e4f928609b38ae6a69128f3136c8a0f816e8021453887f6175966575fb71ef431cb2886205887584820e65daf8649ec50743bb45ec136c3f9adccc3b4cbf9d848ef75c168c4844cd6e760bd6139d79a82e736f3d39ec6019baf9571cd92134eec354a61bbda79cd045d5b26aebf0398dedfdfcce4c60425e904ebba816ecbdcabe353dde311e85d8af4ce904aab36622b093ae1645757da8168546580d18fcd349e708984fc99c7e468ba3d2df486b0fc57cf6d1683802016fe4c4a31cefa8a51e31c499fc13673621c61c274510ce6de8bf36bcd4e38aa36e99772be8e4533f5853849a4562296dde59015ee6f7d3902cf233cd7c6546167d78926cb17906bae38e1706bcc0febcde39c373a175829881c68b99838509efdfb0c93d188dc02745ad6f158e8c480e32487c153e4715a74f9753cb747bb55ca5f95a23426e992ec0d7c4d08bffd2638b56ad8168c933ce28455aacd7fddf5af1c98a4286cb7a739441ad5a3308d57f6c76aa17e18bf27561e52b6668eda263bc14c91ea68426ca0592bf922020d1a9915c8c3ff2db071f437b97406b4f960ed944270248d799fdcd74093f6b2f4787acecb3b1d57942594cbafe5428fe6b74782af316fb933e51d2a6c10b373db5e96c11b06fcafe56be2b3afc22528885d18b2dc21d3d12f246236343a7c1b6f21ff642b5e885c55f1aa7aca8c0c0b8c4ccb9eecb6e4002dd459d6e891e81abaaab313b397cce43143125a159ca90e258f498a4d2f993dfc7594daaea4686b91360838f88ec135441768981aaf8c4ce73a0996654de9410dfdfc416f7d7dfeb27e85fe971f71686c674e367745864ee6e2313949663ffe99e8f8042d229928ed6b948c267f3db8b1e705a831ee0859cfbe09731519aa2a5176b5b203ffdfa1154cd89091336d4fa36ae33c5779669af91653b0cb4c57bddc93682ceb2b4a0fbbf676341ae7dbe60e0fa109d6eca8c0f30924dbfa98409bf61cfebb5522e3bc5de6936ab7eb5ce47e1a74cc107bced3ae1c898c5fcaef1d81857c5901787ef5f88f1906075938cf1238a935453bb9b935ffba306fa3fa373d2cc705537421f743912c894b07ba556f2148db9046e4b19061e05b469b44b95a50e386c6469ad01015dd1a497a7c0c770aa2f2a35eada40514cac4592500b10730e550b4666b6a27ad9e247562133d2da825a00642a2d503c995c8c70c3a327218530d05a26f070ab7ce9af2caa7194c74c1326b7c3544fe8809fef85be3cf91402ebecd62838cac2a68c687112574ca7e852d39563f81fcfcdb4646f4fd0390e289dad67575ec0cb62f096009b55c3aa0c2f60367693e2f988f02f2af5290970e0d1e4a09a42d7fbaeca594d40860e60c0548f56a997131d76cac9fb96df55a102cf34759e12ed27802dde363060ccdf8b2ceef00aeddc4f9d2563a078d630960bd928ed2a83dcbdc7aafff4751c32a8b4613a3efed7bc37b3c0d66a65b2e988f6486394e682e7f14cbd0c3b137eb314b83b831c1f84f650d3b838db71034e4af61d4dc3c5438d0cb429c3a513ce894abe2bed8e29f12c4d2ddde6216428b37c40cbaf99c071c77de9e98ee4c7041507b51e147cc08ca0154073a4a844c0d1a2b363dbf97084db672e35ca338a6bf64f2c39bd2d60408f1dcb6aef624a697115b6d2d655a1b290743e3678be628bd8a45f8feb4cc62be4ada76af71d075be178dc9a5bc514df34357ce22e5a2c9163a1302356fa2bd211b3975e5be13ae3e34feb0cd3b23c634a81e10fe5aa8b3de4dc96f1c6427691dfacb45e4620ecdf37e071117ec8b553cfebde032f0a7fe41c2137ea72fce647fadd8e639ed10c46d46597a754ea92d134ce02f260f3ac2a0cb1a0dd752ad4a8c122f8f3a581b4aca76674d0e2498f199744b946caa464b6c89624af4722ab479679e40613a56e8a71ac0a8c2f51e2e834ad151700c2fb501622155fad3dc4b0f767808d5d9a848db8b0520646728ae99280f90ccf3054f9fb657c1eaa8ffbc2c7f1ccb7e3338be3a7e0b0710403f2224095ed101e1ca623e39cafb1de7fcf019852406090e373d62b3c22d146fff35737a0dc4aa5aae97061a3c9b75c318ddc0088927c5ecf6ba4991010ec8c8915a47e00b2c781e3ce2565c852893705db4e7877ad9b960589844bf2aadfe8fdd1dff05c4f5c53cd039b55f033dd2b21abd018b634aeb03e1f57fe2fd7ae8baf944bbdf6ec863857862eed0a069990e2a31b584a3cf21f09bd083f8310660f3c22857b7ba6b86753e78c59f27df6870d680179721b18e41c2c9344ffa7a8b492706584fa0d2db276b117d4385a4b2208e8ab18b9eca2921c63e8ea25e07477ef77ad31c2abf2c98410b1961511fbee15477cd28e60e95f799fb3a1e7133fc69ac8f18c04764349058bed699f5262098ac13d6252b4aa317ed71baa87916b344d07c4e2a0aff74cdbffbf319c503642062ea68713765ec6b87c5952ba636d61afcf03d5be6a68bcc92cf1eb0e18b7da034fa54297eba6d3b5a7eecb1753fdd2857aa765fd8a32f010df5a202060c6455e49ef271bf6958e056384ef77d71f1008cf628a24920711b91c330079f50adb71be85aebc69782a2fb61a9af267b2d10813da6ae7dea5fef3f0bf59b76c971e9034e230ead1a0729e5f405ab6d636d75112eb0de165b772d696e85e1550e79123469cc06231737f8ea0fd992799ab44815c859d9cb3ec0ff9f54ff8e3eae8cf99fdceccf70c9fa113fb95fa25bfbe29755c6138f3c4449b311c83c3c1f3c2eb32d22344d3e8c184a3dbad05d12670bf895e55fac7769e522fd2a8a67cd639daacc767dd9cd934f6d37fb071c14be36bdddd971ad2caa871c3a37774dd6c1b94536e3587ae986878946456b03fcb5ded9034003a3ab17dfdfa923fc16e0f5b67a3e6912a50aef130fcbaa000b1a766c6fe7ead05b4c7db599c515bfd4f5bf7c510eef453405ad9edd4c71a97a5cc730f6c0d957ad2ab493e479ef9934ad8858ad6e46e40d4c97c617268dffaeb5083724e3f1861883cf6e3972f1d64060128845e4ef08494f2a05deeae203dc3dde9df3d4f26df0e633e067da611a6a011342d5ff64d09e2a070d07ac7fd14f87a765a4867afc66834b9ec225e70f5d54ee809da23941eed2034d902637567385fcf520711a44d21ecc296a23bfa6af167e00e965318c53c60664b5b63836320db5f8b97d844ade27dc63da4a2e4249e7020f80b4438de23a7e43291dd74285df339b68fa0f37670b0f9b4c5bfc34179a3981eb7b648df8abc930db656da00d1ea9a5bd62223fe7e8331e0a08aaadc66a82dc694da1bf14bf2f11e4344b260bb460d4b26620a5ea16394d6fb12d1327deff252bbe2b15670ad5ad39e31690b1b35ec0b606cb0ce9bd4f36d47a7db6e94a89ae8a856e84c6c968275460f87e109543b1f942c73f0ec0ee77e380ee67bcf6c9ac2678ed4556ef1791ae6b751ec7740091818fdfe523ff5e19d2229f323dbe1fd59b166d6c6564c84d6e00e28ca25b69d10ba229d5b4373708be0027164d17d3974e42a29d9b3009451be4e303fe43cab80ffd56d29c55bc2daa735d1f42a31b2a0cb803f62d77f3fd668484beb8d783c389744e904870c0d9331d8f09a20823661bb903ad8ec79c2e8329e4473c820061a90f7ff3e644833dd7438f7080b5c93930523a14c75ea0a3448f835e2b2f15caab6ef1b197cacecd529addad90a48547517d7a1a0ccf6dbfb45aa0545482e8cf66f1e57ff7f93b8f586281bbe11cb12d61159cf9eaa3d24d060f0c79ad1fe061b1c607300d29e6f629eacb6e933a2f78a5a6ade89348994c699b71a421ec5f76164e62fe1079843fda68554e5ddac5db3a421c559ca4dfae9cdb825062d2a9365533b4915cd46cac46d4ebc844a9779becfe1b45f5210a663aa</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">输入密码，查看文章</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
                 
             </div>
             <hr/>
@@ -593,7 +539,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://cutieagain.github.io/2021/02/19/java%E8%BF%9B%E9%98%B6%E8%AE%AD%E7%BB%83%E8%90%A5/Java1%E6%9C%9F%E7%AC%AC%E4%B8%80%E8%AF%BE%E8%A1%A5%E5%85%85%E7%AC%94%E8%AE%B0/">http://cutieagain.github.io/2021/02/19/java%E8%BF%9B%E9%98%B6%E8%AE%AD%E7%BB%83%E8%90%A5/Java1%E6%9C%9F%E7%AC%AC%E4%B8%80%E8%AF%BE%E8%A1%A5%E5%85%85%E7%AC%94%E8%AE%B0/</a>
+                    <a href="http://cutieagain.github.io/2021/02/21/%E6%97%A5%E8%AE%B0/%E6%97%A5%E8%AE%B0-20210221/">http://cutieagain.github.io/2021/02/21/%E6%97%A5%E8%AE%B0/%E6%97%A5%E8%AE%B0-20210221/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -631,20 +577,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4/">
-                                    <span class="chip bg-color">极客时间</span>
-                                </a>
-                            
-                                <a href="/tags/%E7%A7%A6%E9%87%91%E5%8D%AB/">
-                                    <span class="chip bg-color">秦金卫</span>
-                                </a>
-                            
-                                <a href="/tags/%E6%9E%81%E5%AE%A2%E5%A4%A7%E5%AD%A6/">
-                                    <span class="chip bg-color">极客大学</span>
-                                </a>
-                            
-                                <a href="/tags/Java-%E8%BF%9B%E9%98%B6%E8%AE%AD%E7%BB%83%E8%90%A5/">
-                                    <span class="chip bg-color">Java 进阶训练营</span>
+                                <a href="/tags/%E6%97%A5%E8%AE%B0/">
+                                    <span class="chip bg-color">日记</span>
                                 </a>
                             
                         </div>
@@ -820,13 +754,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/02/19/java%E8%BF%9B%E9%98%B6%E8%AE%AD%E7%BB%83%E8%90%A5/Week01-02-JVM-%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF-%E5%B7%A5%E5%85%B7%E4%B8%8E-GC-%E7%AD%96%E7%95%A5/">
+                <a href="/2021/02/21/docker/docker-%E5%A4%9A%E5%AE%B9%E5%99%A8%E9%97%B4%E4%BA%A4%E4%BA%92/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="Week01-02 JVM 核心技术--工具与 GC 策略">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="docker-多容器间交互">
                         
-                        <span class="card-title">Week01-02 JVM 核心技术--工具与 GC 策略</span>
+                        <span class="card-title">docker-多容器间交互</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -837,14 +771,14 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-19
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-21
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/java/" class="post-category">
-                                    java
+                            <a href="/categories/docker/" class="post-category">
+                                    docker
                                 </a>
                             
                             
@@ -854,20 +788,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4/">
-                        <span class="chip bg-color">极客时间</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%A7%A6%E9%87%91%E5%8D%AB/">
-                        <span class="chip bg-color">秦金卫</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%9E%81%E5%AE%A2%E5%A4%A7%E5%AD%A6/">
-                        <span class="chip bg-color">极客大学</span>
-                    </a>
-                    
-                    <a href="/tags/Java-%E8%BF%9B%E9%98%B6%E8%AE%AD%E7%BB%83%E8%90%A5/">
-                        <span class="chip bg-color">Java 进阶训练营</span>
+                    <a href="/tags/docker/">
+                        <span class="chip bg-color">docker</span>
                     </a>
                     
                 </div>
@@ -881,13 +803,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/02/18/java%E8%BF%9B%E9%98%B6%E8%AE%AD%E7%BB%83%E8%90%A5/Week01-01-JVM-%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+                <a href="/2021/02/19/docker/docker%E5%85%A5%E9%97%A8/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Week01-01 JVM 核心技术--基础知识">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="docker入门">
                         
-                        <span class="card-title">Week01-01 JVM 核心技术--基础知识</span>
+                        <span class="card-title">docker入门</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -898,14 +820,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-18
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-19
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/java/" class="post-category">
-                                    java
+                            <a href="/categories/docker/" class="post-category">
+                                    docker
                                 </a>
                             
                             
@@ -915,20 +837,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4/">
-                        <span class="chip bg-color">极客时间</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%A7%A6%E9%87%91%E5%8D%AB/">
-                        <span class="chip bg-color">秦金卫</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%9E%81%E5%AE%A2%E5%A4%A7%E5%AD%A6/">
-                        <span class="chip bg-color">极客大学</span>
-                    </a>
-                    
-                    <a href="/tags/Java-%E8%BF%9B%E9%98%B6%E8%AE%AD%E7%BB%83%E8%90%A5/">
-                        <span class="chip bg-color">Java 进阶训练营</span>
+                    <a href="/tags/docker/">
+                        <span class="chip bg-color">docker</span>
                     </a>
                     
                 </div>

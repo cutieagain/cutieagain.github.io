@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Java1期第一课补充笔记, 欧葵小站">
+    <meta name="keywords" content="docker入门, 欧葵小站">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Java1期第一课补充笔记 | 欧葵小站</title>
+    <title>docker入门 | 欧葵小站</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -312,12 +312,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Java1期第一课补充笔记</h1>
+                    <h1 class="description center-align post-title">docker入门</h1>
                 </div>
             </div>
         </div>
@@ -433,20 +433,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4/">
-                                <span class="chip bg-color">极客时间</span>
-                            </a>
-                        
-                            <a href="/tags/%E7%A7%A6%E9%87%91%E5%8D%AB/">
-                                <span class="chip bg-color">秦金卫</span>
-                            </a>
-                        
-                            <a href="/tags/%E6%9E%81%E5%AE%A2%E5%A4%A7%E5%AD%A6/">
-                                <span class="chip bg-color">极客大学</span>
-                            </a>
-                        
-                            <a href="/tags/Java-%E8%BF%9B%E9%98%B6%E8%AE%AD%E7%BB%83%E8%90%A5/">
-                                <span class="chip bg-color">Java 进阶训练营</span>
+                            <a href="/tags/docker/">
+                                <span class="chip bg-color">docker</span>
                             </a>
                         
                     </div>
@@ -457,8 +445,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/java/" class="post-category">
-                                java
+                            <a href="/categories/docker/" class="post-category">
+                                docker
                             </a>
                         
                     </div>
@@ -477,14 +465,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-02-19
+                    2021-02-21
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    1.3k
                 </div>
                 
 
@@ -514,59 +502,177 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>学习理论说，仅仅听讲只能获得知识的5-10%，只有经过实践和思考，才能变成你的经验。</p>
-<p>1）一定要看预习材料，那是我和铁锚老师的jvm书稿的一部分，很详细。</p>
-<p>2）课上的两个小时是帮大家组织起技术体系，带大家操作演示。</p>
-<p>3）课后动手实践，按课上的演练自己是实验，最后完成必做作业。</p>
-<h2 id="1、字节码"><a href="#1、字节码" class="headerlink" title="1、字节码"></a>1、字节码</h2><p>字节码的本质是java代码编译后的，给jvm虚拟机运行的操作指令。</p>
-<h3 id="学习目标"><a href="#学习目标" class="headerlink" title="学习目标"></a>学习目标</h3><p>字节码不需要全部掌握，大家明白原理就好，面试一般问的也不会太多。</p>
-<p>比如 0: new #2</p>
-<p>表示的是本块代码的第一个指令是new 一个常量池里的第二个常量代表的类型的实例。</p>
-<p>其中new的操作码二进制是bb，操作数是2，那么用二进制表示这条指令就是3个字节：bb 00 02，补上一个00是因为new后面跟两个操作数。（大家想想为什么需要2个操作数？ ）</p>
-<h3 id="学以致用"><a href="#学以致用" class="headerlink" title="学以致用"></a>学以致用</h3><p>了解字节码有两个用途：</p>
-<p>1）能够了解底层jvm执行的是什么，可以用来分析不同代码是否是等价的，如果不等价哪个方式更好。</p>
-<p>比如for循环里用i++还是for(i:数组) 。通过课上的演示，我们知道他们是等价的。（大家想想，如果for : 里不是数组，而是list，字节码会怎么样？）</p>
-<p>比如String a = “a” + “b”; String c = a + “c”; 通过字节码分析，我们知道：</p>
-<p>编译后”a” + “b”直接变成了“ab”，相当于 a =“ab”；</p>
-<p>字符串String作为一个类，是不能做+操作的，所以在字节码层面，都转换成了StringBuilder的append操作，上面的代码相当于String c = new StringBuilder().append(“ab”).append(“c”).toString(); </p>
-<p>2）后面学习AOP的时候，有一大块是字节码操作和增强，这里的内容是那一部分的基础。</p>
-<h2 id="2、类加载器（☆重点）"><a href="#2、类加载器（☆重点）" class="headerlink" title="2、类加载器（☆重点）"></a>2、类加载器（☆重点）</h2><p>类加载器负责把字节码文件或字节码的byte[]转换成为jvm中的类。</p>
-<h3 id="学习目标-1"><a href="#学习目标-1" class="headerlink" title="学习目标"></a>学习目标</h3><p>理解类加载器的原理和作用，加载时机，三类类加载器。</p>
-<p>三个特性：双亲委托，加载依赖，类型缓存。</p>
-<p>知道如何给项目程序添加依赖的jar或路径。</p>
-<p>了解URLClassLoader的作用和跟扩展类加载器、应用类加载器的关系。</p>
-<p>学会自定义简单的classloader。</p>
-<h3 id="学以致用-1"><a href="#学以致用-1" class="headerlink" title="学以致用"></a>学以致用</h3><p>注意：JDK9里扩展类加载器和应用类加载器，不再继承URLClassLoader。</p>
-<p>但是可以这些主动加载： Class.forName(“xxx”, new URLClassloader(“dddd”));</p>
-<p>了解类加载器有几个用途：</p>
-<p>1）能够清楚知道字节码是如何加载的；</p>
-<p>2）能够分析程序加载了那些jar或路径，从而排查找不到类的错误问题；如果遇到了找不到方法或方法参数不匹配的错误问题，说明加载了错误版本的jar，也可以用相同方法排查；</p>
-<p>3）可以实现自定义classloader，做加密、混淆等，保护我们的jar包不被反编译和破解；实际上通过自定义classloader，我们在类加载到jvm的时候可以做一些额外的处理（想想是不是跟AOP有点像？）；</p>
-<p>4）早期实现动态加载，模块化都是基于自定义classloader的，如果我们实现两个自定义classloader，比如A和B，他们没有关系，且各自加载了一个叫Hello的类，这两个Hello的类型是不同的，这样就可以实现不同版本的类隔离（如果代码写的不恰当，也可能会出现所谓A的一个Hello类的实例，运行时做类型转换无法转换成B的Hello类型的错误）；</p>
-<p>5）作业必做题与此相关。</p>
-<p>需要注意的是：jdk代码里写死了，不允许自定义classloader加载以java.开头包名的类。</p>
-<h2 id="3、Java内存模型（☆重点）"><a href="#3、Java内存模型（☆重点）" class="headerlink" title="3、Java内存模型（☆重点）"></a>3、Java内存模型（☆重点）</h2><p>类被加载到JVM中，代码运行时都需要使用内存，所以Java内存模型就是用来规定JVM内部的内存结构。</p>
-<h3 id="学习目标-2"><a href="#学习目标-2" class="headerlink" title="学习目标"></a>学习目标</h3><p>了解栈、堆、非堆、堆外等内存，以及它们的关系和区别。</p>
-<p>了解栈的结构，可以跟前面字节码执行对应起来。</p>
-<p>了解堆的结构，新生代young gen，老年代old gen，新生代又包括eden和s0、s1</p>
-<p>了解非堆和堆外是用来做什么的。</p>
-<h3 id="学以致用-2"><a href="#学以致用-2" class="headerlink" title="学以致用"></a>学以致用</h3><p>了解内存模型有几个用途：</p>
-<p>1）这一块是下一节课讲的GC的基础，也是第三个模块讲并发编程的基础，这一块熟悉了有利于学习GC和并发；</p>
-<p>2）面试经常会被问到这个问题；</p>
-<p>3）作业必做题与这一块有直接关系，多动手画一画，有助于面试时能比较好的讲清楚。</p>
-<h2 id="4、命令行参数"><a href="#4、命令行参数" class="headerlink" title="4、命令行参数"></a>4、命令行参数</h2><p>JVM作为一个通用的虚拟计算机，是通过java命令来启动的，为了让JVM能够适应不同的需求环境，所以需要配置不同的参数使JVM更好的工作，这就是java命令执行的命令行参数。</p>
-<h3 id="学习目标-3"><a href="#学习目标-3" class="headerlink" title="学习目标"></a>学习目标</h3><p>常用的命令行参数有哪些？</p>
-<p>标准参数 -server</p>
-<p>非标准参数 -Xmx，-XX：xxxx=yyyy</p>
-<p>系统属性-Dxxx=yyy</p>
-<h3 id="学以致用-3"><a href="#学以致用-3" class="headerlink" title="学以致用"></a>学以致用</h3><p>jvm内存配置经验：xmx ~ 不要超过系统可用内存的60-80%</p>
-<p>例如 系统有4g可用内存 -&gt; 4g*0.6<del>0.8 -&gt; 可以设置xmx为2.4</del>3.2g</p>
-<p>java参数目前有1000多个，其中GC相关的占一大半。具体参数相关的一些问题，我们下节课继续讲。</p>
-<h2 id="5、课堂答疑"><a href="#5、课堂答疑" class="headerlink" title="5、课堂答疑"></a>5、课堂答疑</h2><p>其他的问题整理与回答：</p>
-<p><a target="_blank" rel="noopener" href="https://shimo.im/docs/rcxYt6PtQgkkyd8h">https://shimo.im/docs/rcxYt6PtQgkkyd8h</a></p>
-<h2 id="6、其他资料"><a href="#6、其他资料" class="headerlink" title="6、其他资料"></a>6、其他资料</h2><p>官方对JDK/JRE、classloader和一些工具的说明：<a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/tools/windows/toc.html">https://docs.oracle.com/javase/8/docs/technotes/tools/windows/toc.html</a></p>
-<p><img src="https://cdn.jsdelivr.net/gh/cutieagain/images@main/20210219092358.png!thumbnail" alt="img"></p>
-<p>上图来源于：<a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/">https://docs.oracle.com/javase/8/docs/</a></p>
+                <h1 id="docker入门"><a href="#docker入门" class="headerlink" title="docker入门"></a>docker入门</h1><h2 id="文档"><a href="#文档" class="headerlink" title="文档"></a>文档</h2><p><a target="_blank" rel="noopener" href="https://docs.docker.com/">docker官网文档</a></p>
+<p><a target="_blank" rel="noopener" href="https://docs.docker.com/get-started/">docker快速入手</a></p>
+<h2 id="docker概述"><a href="#docker概述" class="headerlink" title="docker概述"></a><a target="_blank" rel="noopener" href="https://docs.docker.com/get-started/overview/">docker概述</a></h2><p>Docker是一个用于开发，发布和运行应用程序的开放平台。Docker将应用程序与基础架构分开，从而可以快速交付软件。借助Docker可以以与管理应用程序相同的方式来管理基础架构。通过利用Docker的方法来快速交付，测试和部署代码，大大减少编写代码和在生产环境中运行代码之间的延迟。</p>
+<p>docker可以用于快速一致交付程序，响应式部署和拓展，在同一软件上运行多个相同或者不同的服务，使资源得到充分利用。</p>
+<p>docker架构如下</p>
+<p><img src="https://cdn.jsdelivr.net/gh/cutieagain/images@main/20210219114938.svg" alt="Docker架构图"></p>
+<h3 id="docker概念"><a href="#docker概念" class="headerlink" title="docker概念"></a>docker概念</h3><p><a target="_blank" rel="noopener" href="http://dockone.io/article/783">10张图带你深入理解Docker容器和镜像</a></p>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903938030845966">Docker的三大核心组件：镜像，容器与仓库</a></p>
+<h2 id="下载docker"><a href="#下载docker" class="headerlink" title="下载docker"></a>下载docker</h2><p><a target="_blank" rel="noopener" href="https://docs.docker.com/get-docker/">官网下载地址</a></p>
+<p>mac电脑选择mac版本进行下载</p>
+<p><img src="https://cdn.jsdelivr.net/gh/cutieagain/images@main/20210219114521.png" alt="image-20210219114521282"></p>
+<p>安装好后进行启动，和安装普通软件一样</p>
+<p><img src="https://cdn.jsdelivr.net/gh/cutieagain/images@main/20210219114554.png" alt="image-20210219114554407"></p>
+<h2 id="docker可以做的事情"><a href="#docker可以做的事情" class="headerlink" title="docker可以做的事情"></a>docker可以做的事情</h2><p>启动容器运行应用</p>
+<p>持久化数据，防止每次启动不一致</p>
+<p>可以使用docker hub共享镜像</p>
+<p>多容器之间交互</p>
+<blockquote>
+<p>如果两个容器在同一网络上，它们可以相互通信。如果不是，他们就不会</p>
+</blockquote>
+<p>使用docker compose</p>
+<h2 id="Hello-World-我的第一个docker容器"><a href="#Hello-World-我的第一个docker容器" class="headerlink" title="Hello World 我的第一个docker容器"></a>Hello World 我的第一个docker容器</h2><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">docker run -d -p 80:80 docker/getting-started
+docker run -dp 80:80 docker/getting-started #也可以写做这个，简写<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<ul>
+<li><code>-d</code> -以分离模式运行容器（在后台）</li>
+<li><code>-p 80:80</code> -将主机的端口80映射到容器中的端口80</li>
+<li><code>docker/getting-started</code> -要使用的图像</li>
+</ul>
+<p>运行后，可以点击docker中的dashboard查看上面起起来的容器，容器名称是随意创建的</p>
+<p><img src="https://cdn.jsdelivr.net/gh/cutieagain/images@main/20210220153738.png" alt="image-20210220153738649"></p>
+<h3 id="什么是容器？"><a href="#什么是容器？" class="headerlink" title="什么是容器？"></a>什么是容器？</h3><p>简单说，容器就是一个你机器上的一个进程，它与其他进程是相互间隔离的。</p>
+<h3 id="什么是容器镜像？"><a href="#什么是容器镜像？" class="headerlink" title="什么是容器镜像？"></a>什么是容器镜像？</h3><p>容器镜像包含了所有的需要起一个应用的要素，包括依赖，配置，脚本，二进制文件等，但是也包含了其他容器的配置，如环境变量，默认启动方法，以及其他元数据</p>
+<h2 id="镜像创建示例"><a href="#镜像创建示例" class="headerlink" title="镜像创建示例"></a>镜像创建示例</h2><p>以下参照 <a target="_blank" rel="noopener" href="https://docs.docker.com/get-started">get-started</a> 测试</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/docker/getting-started/tree/master/app">下载docker新手app文件</a></p>
+<p>创建Dockerfile，并粘贴下面的内容</p>
+<pre class="line-numbers language-none"><code class="language-none">FROM node:12-alpine
+ WORKDIR /app
+ COPY . .
+ RUN yarn install --production
+ CMD ["node", "src/index.js"]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<p><img src="https://cdn.jsdelivr.net/gh/cutieagain/images@main/20210220160623.png" alt="image-20210220160623347"></p>
+<p>在app目录下执行以下命令，使用<code>docker build</code>命令构建容器映像。（不要忘记了后面那个点，表示当前目录）</p>
+<pre class="line-numbers language-none"><code class="language-none">docker build -t getting-started .<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>他使用了Dockerfile去创建一个新的容器镜像，你会发现好多“layers”被下载下来了，这是因为Dockerfile上以node:12-alpine为基础镜像，但是我们的机器上面没有这些镜像文件。下载完毕后，他们会被复制到我们的应用中，并使用<code>yarn</code>去安装应用的依赖。执行命令行使用的是系统默认的<code>cmd</code>软件。<code>-t</code>后面带的名字即镜像名称，方便我们之后去运行该镜像。</p>
+<p>安装完毕，如下所示</p>
+<pre class="line-numbers language-none"><code class="language-none">cutiedeMacBook-Pro:app cutie$ docker build -t getting-started .
+Sending build context to Docker daemon  4.659MB
+Step 1/5 : FROM node:12-alpine
+12-alpine: Pulling from library/node
+0a6724ff3fcd: Pull complete
+b68849637432: Pull complete
+7dda491622fb: Pull complete
+ce97b0f80161: Pull complete
+Digest: sha256:77fe10dbc042121e94db7f43b4b912a52514759b847978588eec4d5d0eb5282c
+Status: Downloaded newer image for node:12-alpine
+ ---&gt; e136be20a0bd
+Step 2/5 : WORKDIR /app
+ ---&gt; Running in d9ec4d68327f
+Removing intermediate container d9ec4d68327f
+ ---&gt; a7c9152f5afe
+Step 3/5 : COPY . .
+ ---&gt; fa7eda5fa1a7
+Step 4/5 : RUN yarn install --production
+ ---&gt; Running in 629ef52d06b6
+yarn install v1.22.5
+[1/4] Resolving packages...
+[2/4] Fetching packages...
+info fsevents@1.2.9: The platform "linux" is incompatible with this module.
+info "fsevents@1.2.9" is an optional dependency and failed compatibility check. Excluding it from installation.
+[3/4] Linking dependencies...
+[4/4] Building fresh packages...
+Done in 145.83s.
+Removing intermediate container 629ef52d06b6
+ ---&gt; 15136bc6d899
+Step 5/5 : CMD ["node", "src/index.js"]
+ ---&gt; Running in 62ad87066a4e
+Removing intermediate container 62ad87066a4e
+ ---&gt; 945f98aa1995
+Successfully built 945f98aa1995
+Successfully tagged getting-started:latest<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<p>这个时候，我们在docker中的images中也能看到我们新建的镜像了</p>
+<p><img src="https://cdn.jsdelivr.net/gh/cutieagain/images@main/20210220165847.png" alt="image-20210220165847096"></p>
+<h2 id="启动容器示例"><a href="#启动容器示例" class="headerlink" title="启动容器示例"></a>启动容器示例</h2><p>现在我们拥有一个镜像了，可以跑一个应用了。执行<code>docker run</code>命令，这时候，用到我们之前创建的镜像文件了</p>
+<pre class="line-numbers language-none"><code class="language-none">docker run -dp 3000:3000 getting-started<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><code>-d</code> detached模式，保持容器后台运行，可以执行后续的<code>exec</code>命令</p>
+<p><code>-p</code> 指定端口</p>
+<pre class="line-numbers language-none"><code class="language-none">cutiedeMacBook-Pro:app cutie$ docker run -dp 3000:3000 getting-started
+6891eba76d5d89b534a2a815d4a77ef5d447ca41b8170b64c537f4fb17a2a88e<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+<p>然后在container/app中就能看到已经运行起来的容器</p>
+<p><img src="https://cdn.jsdelivr.net/gh/cutieagain/images@main/20210220172028.png" alt="image-20210220172028423"></p>
+<p>打开 <a target="_blank" rel="noopener" href="http://localhost:3000/">http://localhost:3000</a> ，看看运行起来的</p>
+<p>![image-20210220172211298](/Users/cutie/Library/Application Support/typora-user-images/image-20210220172211298.png)</p>
+<h2 id="docker常用命令【后续进行抽离完善】"><a href="#docker常用命令【后续进行抽离完善】" class="headerlink" title="docker常用命令【后续进行抽离完善】"></a>docker常用命令【后续进行抽离完善】</h2><p><code>docker ps</code> 查看正在运行的镜像</p>
+<pre class="line-numbers language-none"><code class="language-none">cutiedeMacBook-Pro:app cutie$ docker ps
+CONTAINER ID   IMAGE                    COMMAND                  CREATED          STATUS          PORTS                    NAMES
+6891eba76d5d   945f98aa1995             "docker-entrypoint.s…"   23 minutes ago   Up 23 minutes   0.0.0.0:3000-&gt;3000/tcp   amazing_babbage
+6b825ac83cbb   docker/getting-started   "nginx -g 'daemon of…"   2 hours ago      Up 2 hours      0.0.0.0:80-&gt;80/tcp       nifty_colden<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<p><code>docker stop &lt;the-container-id&gt;</code> 根据容器id暂停正在运行的容器</p>
+<pre class="line-numbers language-none"><code class="language-none">cutiedeMacBook-Pro:app cutie$ docker stop 6891eba76d5d
+6891eba76d5d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+<p><code>docker rm &lt;the-container-id&gt;</code> 根据容器id移除不使用的容器</p>
+<pre class="line-numbers language-none"><code class="language-none">cutiedeMacBook-Pro:app cutie$ docker rm 6891eba76d5d
+6891eba76d5d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+<p><code>docker rm -f &lt;the-container-id&gt;</code> 单行命令终止和删除容器</p>
+<p><code>docker image ls</code> 查看镜像列表</p>
+<p><code>docker logs -f &lt;container-id&gt;</code> 查看日志，看完日志后，请按<code>Ctrtrol</code>+<code>C</code>退出</p>
+<pre class="line-numbers language-none"><code class="language-none">cutiedeMacBook-Pro:app cutie$ docker logs -f 9a5b851f917b
+Using sqlite database at /etc/todos/todo.db
+Listening on port 3000<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                 
             </div>
@@ -593,7 +699,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://cutieagain.github.io/2021/02/19/java%E8%BF%9B%E9%98%B6%E8%AE%AD%E7%BB%83%E8%90%A5/Java1%E6%9C%9F%E7%AC%AC%E4%B8%80%E8%AF%BE%E8%A1%A5%E5%85%85%E7%AC%94%E8%AE%B0/">http://cutieagain.github.io/2021/02/19/java%E8%BF%9B%E9%98%B6%E8%AE%AD%E7%BB%83%E8%90%A5/Java1%E6%9C%9F%E7%AC%AC%E4%B8%80%E8%AF%BE%E8%A1%A5%E5%85%85%E7%AC%94%E8%AE%B0/</a>
+                    <a href="http://cutieagain.github.io/2021/02/19/docker/docker%E5%85%A5%E9%97%A8/">http://cutieagain.github.io/2021/02/19/docker/docker%E5%85%A5%E9%97%A8/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -631,20 +737,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4/">
-                                    <span class="chip bg-color">极客时间</span>
-                                </a>
-                            
-                                <a href="/tags/%E7%A7%A6%E9%87%91%E5%8D%AB/">
-                                    <span class="chip bg-color">秦金卫</span>
-                                </a>
-                            
-                                <a href="/tags/%E6%9E%81%E5%AE%A2%E5%A4%A7%E5%AD%A6/">
-                                    <span class="chip bg-color">极客大学</span>
-                                </a>
-                            
-                                <a href="/tags/Java-%E8%BF%9B%E9%98%B6%E8%AE%AD%E7%BB%83%E8%90%A5/">
-                                    <span class="chip bg-color">Java 进阶训练营</span>
+                                <a href="/tags/docker/">
+                                    <span class="chip bg-color">docker</span>
                                 </a>
                             
                         </div>
@@ -820,6 +914,55 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
+                <a href="/2021/02/21/%E6%97%A5%E8%AE%B0/%E6%97%A5%E8%AE%B0-20210221/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="日记20210221">
+                        
+                        <span class="card-title">日记20210221</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            日记20210221
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-21
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%97%A5%E8%AE%B0/" class="post-category">
+                                    日记
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%97%A5%E8%AE%B0/">
+                        <span class="chip bg-color">日记</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
                 <a href="/2021/02/19/java%E8%BF%9B%E9%98%B6%E8%AE%AD%E7%BB%83%E8%90%A5/Week01-02-JVM-%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF-%E5%B7%A5%E5%85%B7%E4%B8%8E-GC-%E7%AD%96%E7%95%A5/">
                     <div class="card-image">
                         
@@ -836,69 +979,8 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-19
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/java/" class="post-category">
-                                    java
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4/">
-                        <span class="chip bg-color">极客时间</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%A7%A6%E9%87%91%E5%8D%AB/">
-                        <span class="chip bg-color">秦金卫</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%9E%81%E5%AE%A2%E5%A4%A7%E5%AD%A6/">
-                        <span class="chip bg-color">极客大学</span>
-                    </a>
-                    
-                    <a href="/tags/Java-%E8%BF%9B%E9%98%B6%E8%AE%AD%E7%BB%83%E8%90%A5/">
-                        <span class="chip bg-color">Java 进阶训练营</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/02/18/java%E8%BF%9B%E9%98%B6%E8%AE%AD%E7%BB%83%E8%90%A5/Week01-01-JVM-%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Week01-01 JVM 核心技术--基础知识">
-                        
-                        <span class="card-title">Week01-01 JVM 核心技术--基础知识</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-18
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-19
                             </span>
                         <span class="publish-author">
                             
