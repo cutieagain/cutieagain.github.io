@@ -472,14 +472,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.3k
+                    2.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    9 分
+                    10 分
                 </div>
                 
 
@@ -691,6 +691,53 @@ mysql&gt; SHOW DATABASES;
 | todos              |
 +--------------------+
 5 rows in set (0.01 sec)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none">cutiedeMacBook-Pro:app cutie$ docker run -it --network todo-app nicolaka/netshoot
+Unable to find image 'nicolaka/netshoot:latest' locally
+latest: Pulling from nicolaka/netshoot
+4c0d98bf9879: Downloading
+df962687d630: Download complete
+f4b598a64a46: Download complete
+a3f487e8dfcb: Download complete
+0d084d29b530: Download complete
+c40275cdc1a4: Download complete
+53d8247f861d: Download complete
+latest: Pulling from nicolaka/netshoot
+4c0d98bf9879: Pull complete
+df962687d630: Pull complete
+f4b598a64a46: Pull complete
+a3f487e8dfcb: Pull complete
+0d084d29b530: Pull complete
+c40275cdc1a4: Pull complete
+53d8247f861d: Pull complete
+Digest: sha256:6ae5a524ab390824a43a29a8a2ec7b9c013736d98a0aed264f1132196098aac2
+Status: Downloaded newer image for nicolaka/netshoot:latest
+                    dP            dP                           dP
+                    88            88                           88
+88d888b. .d8888b. d8888P .d8888b. 88d888b. .d8888b. .d8888b. d8888P
+88'  `88 88ooood8   88   Y8ooooo. 88'  `88 88'  `88 88'  `88   88
+88    88 88.  ...   88         88 88    88 88.  .88 88.  .88   88
+dP    dP `88888P'   dP   `88888P' dP    dP `88888P' `88888P'   dP
+
+Welcome to Netshoot! (github.com/nicolaka/netshoot)
+root @ /
+ [1] 🐳  → dig mysql
+
+; &lt;&lt;&gt;&gt; DiG 9.16.11 &lt;&lt;&gt;&gt; mysql
+;; global options: +cmd
+;; Got answer:
+;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 53757
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 0
+
+;; QUESTION SECTION:
+;mysql.				IN	A
+
+;; ANSWER SECTION:
+mysql.			600	IN	A	172.19.0.2
+
+;; Query time: 4 msec
+;; SERVER: 127.0.0.11#53(127.0.0.11)
+;; WHEN: Sun Feb 21 09:48:10 UTC 2021
+;; MSG SIZE  rcvd: 44<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -1221,7 +1268,7 @@ mysql&gt; SHOW DATABASES;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">18.9k</span>&nbsp;字
+                class="white-color">19.1k</span>&nbsp;字
             
             
             
