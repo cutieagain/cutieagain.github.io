@@ -465,21 +465,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-03-02
+                    2021-03-12
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.1k
+                    4.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    14 分
+                    15 分
                 </div>
                 
 
@@ -611,6 +611,15 @@
 <p><img src="https://cdn.jsdelivr.net/gh/cutieagain/images@main/20210302151529.png" alt="image-20210302151529500"></p>
 <p>咨询了阿里云客服，针对RDS MySQL 5.7，内核小版本需为20200331或以上版本。需要抽时间换内核小版本，再进行购买。<code>20210302</code>晚上升级内核后再进购买测试。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/cutieagain/images@main/20210302151351.png" alt="image-20210302151351929"></p>
+<p>最后是先购买一台PolarDB，在使用阿里云的迁移和同步服务，在数据同步的情况下重新发版项目，切换数据源到新的数据源下面。期间遇到了表名大小写敏感的问题，Quartz的几张表源数据库是小写的，迁移到新的PolarDB后，程序无法访问，期间只能手动尝试修改。</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/fdipzone/article/details/73692929">mysql大小写敏感配置</a></p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">show global variables like '%lower_case%';<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>lower_case_file_system    OFF<br>lower_case_table_names    0</p>
+<ul>
+<li><strong>lower_case_file_system</strong></li>
+</ul>
+<p>表示当前系统文件是否大小写敏感，只读参数，无法修改。</p>
+<p>ON 大小写不敏感<br>OFF 大小写敏感</p>
 <h1 id="其他参考链接"><a href="#其他参考链接" class="headerlink" title="其他参考链接"></a>其他参考链接</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/oChangWen/article/details/53423301">关系型数据库和非关系型数据库区别、oracle与mysql的区别</a></p>
 
                 
@@ -906,13 +915,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/02/25/java%E9%A1%B9%E7%9B%AE%E8%AE%AD%E7%BB%83%E8%90%A5/%E5%B0%8F%E9%A9%AC%E5%93%A5%E8%AE%AD%E7%BB%83%E8%90%A5-%E6%B1%87%E6%80%BB%E8%AE%B0%E5%BD%95/">
+                <a href="/2021/02/25/java%E9%A1%B9%E7%9B%AE%E8%AE%AD%E7%BB%83%E8%90%A5/%E7%AC%AC%E4%B8%80%E8%8A%82%EF%BC%9AJava-EE-%E5%8D%95%E4%BD%93%E6%9E%B6%E6%9E%84/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="小马哥训练营-汇总记录">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="第一节：Java EE 单体架构">
                         
-                        <span class="card-title">小马哥训练营-汇总记录</span>
+                        <span class="card-title">第一节：Java EE 单体架构</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1148,7 +1157,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">34.4k</span>&nbsp;字
+                class="white-color">212.4k</span>&nbsp;字
             
             
             

@@ -1,0 +1,1369 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Java98k, 欧葵小站">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Java98k | 欧葵小站</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">欧葵小站</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">欧葵小站</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/cutieagain" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/cutieagain" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Java98k</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/">
+                                <span class="chip bg-color"></span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/" class="post-category">
+                                
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-03-24
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2021-04-09
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    8 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="计划【于20210324】"><a href="#计划【于20210324】" class="headerlink" title="计划【于20210324】"></a>计划【于20210324】</h1><p>收集所有的信息来完善当前的知识体系，达到98k的目标。</p>
+<p>互联网行业除了技术还有产品经理，运营，销售，编辑，策划，客服。不要害怕之后会发生什么。</p>
+<p>时间比较紧迫，只看最好的内容</p>
+<p>达成什么目标？做成哪些事？需要做哪些努力？</p>
+<h1 id="如何记忆？"><a href="#如何记忆？" class="headerlink" title="如何记忆？"></a>如何记忆？</h1><h2 id="5W1H分析法"><a href="#5W1H分析法" class="headerlink" title="5W1H分析法"></a>5W1H分析法</h2><p>what - 对象，why - 目的，where - 场所，when - 何时干，who - 谁来干，how - 怎么干</p>
+<p>如果对应的是一个知识点，就是，这个知识点的基础介绍，有什么用，用在哪里，什么时候用比较好，一般适合谁用（使用场景三要素），怎么用。</p>
+<p>带着目的去学习可能会更有效，你之后想学习了之后拿它来做什么？？学完了之后需要做一遍</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><h2 id="汇总"><a href="#汇总" class="headerlink" title="汇总"></a>汇总</h2><p>GitHub中文排行榜，帮助你发现高分优秀中文项目、更高效地吸收国人的优秀经验成果；榜单每周更新一次  <a target="_blank" rel="noopener" href="https://github.com/kon9chunkit/GitHub-Chinese-Top-Charts">GitHub-Chinese-Top-Charts</a></p>
+<p>技术面试必备基础知识、Leetcode、计算机操作系统、计算机网络、系统设计、Java、Python、C++   <a target="_blank" rel="noopener" href="https://github.com/CyC2018/CS-Notes">CS-Notes</a></p>
+<p>「Java学习+面试指南」一份涵盖大部分 Java 程序员所需要掌握的核心知识。 <a target="_blank" rel="noopener" href="https://github.com/Snailclimb/JavaGuide">JavaGuide</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/bfchengnuo/MyRecord">MyRecord</a>   <a target="_blank" rel="noopener" href="https://github.com/bfchengnuo/MyRecord/blob/master/%E7%AC%94%E8%AE%B0/Java/%E5%9F%BA%E7%A1%80/%E4%B8%80%E5%85%A5Java%E6%B7%B1%E4%BC%BC%E6%B5%B7.md">一入Java深似海笔记</a></p>
+<h2 id="薪资查询"><a href="#薪资查询" class="headerlink" title="薪资查询"></a>薪资查询</h2><p><a target="_blank" rel="noopener" href="https://salaryfly.com/">https://salaryfly.com</a></p>
+<h2 id="java"><a href="#java" class="headerlink" title="java"></a>java</h2><p>并发编程示例 <a target="_blank" rel="noopener" href="https://github.com/oldratlee/fucking-java-concurrency">fucking-java-concurrency</a></p>
+<p>互联网 Java 工程师进阶知识完全扫盲：涵盖高并发、分布式、高可用、微服务、海量数据处理等领域知识 <a target="_blank" rel="noopener" href="https://github.com/doocs/advanced-java">advanced-java</a></p>
+<p>《On Java 8》中文版 <a target="_blank" rel="noopener" href="https://github.com/LingCoder/OnJava8">OnJava8</a></p>
+<p>Modern Java - A Guide to Java 8 <a target="_blank" rel="noopener" href="https://github.com/winterbe/java8-tutorial">java8-tutorial</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/java8/Java8InAction">Java8InAction</a></p>
+<p>Java Core Sprout : basic, concurrent, algorithm  <a target="_blank" rel="noopener" href="https://github.com/crossoverJie/JCSprout">JCSprout</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/1252599548343744/1322402971648033">廖雪峰java教程【也有其他很多教程】</a></p>
+<h2 id="技术架构"><a href="#技术架构" class="headerlink" title="技术架构"></a>技术架构</h2><p>互联网公司技术架构，微信/淘宝/微博/腾讯/阿里/美团点评/百度/Google/Facebook/Amazon/eBay的架构 <a target="_blank" rel="noopener" href="https://github.com/davideuler/architecture.of.internet-product">architecture.of.internet-product</a></p>
+<p>汇总、整理常用的分布式开发技术，给出demo，方便学习。包括数据分片、共识算法、一致性hash、分布式事务、非侵入的分布式链路追踪实现原理等内容。 <a target="_blank" rel="noopener" href="https://github.com/evasnowind/distributed-dev-learning">distributed-dev-learning</a></p>
+<h3 id="相关文章"><a href="#相关文章" class="headerlink" title="相关文章"></a>相关文章</h3><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzU0OTk3ODQ3Ng==&amp;mid=2247483759&amp;idx=1&amp;sn=7e6575861a779711a5ef5f27b8e088e4&amp;chksm=fba6e96cccd1607a709c1437eb0b92df703b8d8eac466205798618480abf600b67f032782e88&amp;scene=21#wechat_redirect">【双11狂欢的背后】微服务注册中心如何承载大型系统的千万级访问？</a></p>
+<h3 id="基础框架"><a href="#基础框架" class="headerlink" title="基础框架"></a>基础框架</h3><p>SpringBoot、Dubbo、SpringCloud的各种集成例子：Atomikos、gRPC、Thrift、Seata、ShardingSphere、Dubbo、Hmily、Nacos、Consul、Ribbon、Jedis、Lettuce、Redisson等框架  <a target="_blank" rel="noopener" href="https://github.com/ipipman/JavaSpringBootSamples">JavaSpringBootSamples</a></p>
+<p>涵盖六个专栏：Spring Boot 2.X、Spring Cloud、Spring Cloud Alibaba、Dubbo、分布式消息队列、分布式事务的仓库。 <a target="_blank" rel="noopener" href="https://github.com/YunaiV/SpringBoot-Labs">SpringBoot-Labs</a></p>
+<p>spring-boot,mybatis,activemq,redis,email, freemarker,shiro,websocket,sitemesh,ehcache,easyui,kindeditor,quartz,springfox,swagger,jpa,hibernate,querydsl,netty  <a target="_blank" rel="noopener" href="https://github.com/leelance/spring-boot-all">spring-boot-all</a></p>
+<h2 id="技能图谱"><a href="#技能图谱" class="headerlink" title="技能图谱"></a>技能图谱</h2><p>程序员技能图谱 <a target="_blank" rel="noopener" href="https://github.com/TeamStuQ/skill-map">skill-map</a></p>
+<p>后端架构师技术图谱 <a target="_blank" rel="noopener" href="https://github.com/xingshaocheng/architect-awesome">architect-awesome</a></p>
+<p>【Java服务端知识技能图谱】用思维脑图梳理汇总Java服务端知识技能 <a target="_blank" rel="noopener" href="https://github.com/caison/java-knowledge-mind-map">java-knowledge-mind-map</a></p>
+<p>Java知识图谱（Java进阶训练营）<a target="_blank" rel="noopener" href="https://github.com/JavaCourse00/java-knowledge-map">java-knowledge-map</a> </p>
+<h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><p>「算法面试+算法知识」针对小白的算法训练 | 包括：1、阿里、字节、滴滴 百篇大厂面经汇总 2、千本开源电子书 3、百张思维导图 ）<a target="_blank" rel="noopener" href="https://github.com/geekxh/hello-algorithm"> hello-algorithm</a></p>
+<p>LeetCode 题解 Go语言实现 <a target="_blank" rel="noopener" href="https://github.com/halfrost/LeetCode-Go">LeetCode-Go</a></p>
+<p>LeetCode 101：和你一起你轻松刷题（C++） <a target="_blank" rel="noopener" href="https://github.com/changgyhub/leetcode_101">leetcode_101</a></p>
+<p>数据结构和算法必知必会的50个代码实现（王争） <a target="_blank" rel="noopener" href="https://github.com/wangzheng0822/algo">algo</a></p>
+<p>刷算法 <a target="_blank" rel="noopener" href="https://github.com/labuladong/fucking-algorithm">fucking-algorithm</a></p>
+<p>All Algorithms implemented in Java <a target="_blank" rel="noopener" href="https://github.com/TheAlgorithms/Java">The Algorithms Java</a></p>
+<h2 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h2><p>图说设计模式 <a target="_blank" rel="noopener" href="https://github.com/me115/design_patterns">design_patterns</a></p>
+<p>Java代码积累 | 大话设计模式（Java实现版本）、线程协作  <a target="_blank" rel="noopener" href="https://github.com/echoTheLiar/JavaCodeAcc">JavaCodeAcc</a></p>
+<p>Design patterns implemented in Java  <a target="_blank" rel="noopener" href="https://github.com/iluwatar/java-design-patterns">java-design-patterns</a></p>
+<p>Java 23种设计模式全归纳 <a target="_blank" rel="noopener" href="https://github.com/youlookwhat/DesignPattern">DesignPattern</a></p>
+<p>大话设计模式java代码实现 <a target="_blank" rel="noopener" href="https://github.com/echoTheLiar/JavaCodeAcc">JavaCodeAcc</a></p>
+<h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><p>A curated list of awesome MySQL software, libraries, tools and resources <a target="_blank" rel="noopener" href="https://github.com/shlomi-noach/awesome-mysql">awesome-mysql</a></p>
+<p>Distributed Database Ecosphere <a target="_blank" rel="noopener" href="https://github.com/apache/shardingsphere">shardingsphere</a></p>
+<h3 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h3><p>PostgreSQL</p>
+<h3 id="相关文章-1"><a href="#相关文章-1" class="headerlink" title="相关文章"></a>相关文章</h3><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/117476959">MySQL事务隔离级别和实现原理（看这一篇文章就够了！）</a></p>
+<h2 id="书籍"><a href="#书籍" class="headerlink" title="书籍"></a>书籍</h2><p>免费的计算机编程类中文书籍 <a target="_blank" rel="noopener" href="https://github.com/justjavac/free-programming-books-zh_CN">free-programming-books-zh_CN</a></p>
+<p>2021年最新总结，从程序员到CTO，从专业走向卓越，分享大牛企业内部pdf与PPT  <a target="_blank" rel="noopener" href="https://github.com/0voice/from_coder_to_expert">from_coder_to_expert</a></p>
+<p>【编程随想】收藏的电子书清单（多个学科，含下载链接） <a target="_blank" rel="noopener" href="https://github.com/programthink/books">books</a></p>
+<p>Freely available programming books <a target="_blank" rel="noopener" href="https://github.com/EbookFoundation/free-programming-books">free-programming-books</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/TonnnnnnyLiu/Books">Books</a></p>
+<p>码农周刊整理 <a target="_blank" rel="noopener" href="https://github.com/nemoTyrant/manong">manong</a></p>
+<h2 id="面试"><a href="#面试" class="headerlink" title="面试"></a>面试</h2><p>代码面试题集，包括剑指 Offer、编程之美 <a target="_blank" rel="noopener" href="https://github.com/doocs/advanced-java">advanced-java</a></p>
+<p>小伙伴整理  <a target="_blank" rel="noopener" href="https://github.com/zhendiao/JavaInterview">JavaInterview</a></p>
+<p> <a target="_blank" rel="noopener" href="https://www.cnblogs.com/tietazhan/articles/5771886.html">java中级面试题 含答案【分类分的好】</a></p>
+<h2 id="简历模板"><a href="#简历模板" class="headerlink" title="简历模板"></a>简历模板</h2><p>Resume template for Chinese programmers  <a target="_blank" rel="noopener" href="https://github.com/geekcompany/ResumeSample">ResumeSample</a></p>
+<h2 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h2><p>JVM 底层原理最全知识总结 <a target="_blank" rel="noopener" href="https://github.com/doocs/jvm">jvm</a></p>
+<h2 id="Netty"><a href="#Netty" class="headerlink" title="Netty"></a>Netty</h2><p>NettyRPC is high performance java rpc server base on Netty,using kryo,hessian,protostuff support message serialization.  <a target="_blank" rel="noopener" href="https://github.com/tang-jie/NettyRPC">NettyRPC</a></p>
+<p>springboot集成netty，使用protobuf作为数据传输格式，包含心跳检测、断开重连、上传数据、主动推送功能. <a target="_blank" rel="noopener" href="https://github.com/nosqlcoco/springboot-netty-protobuf">springboot-netty-protobuf</a></p>
+<p>基于netty实现的服务端Nio MVC业务开发平台 <a target="_blank" rel="noopener" href="https://github.com/shiftyman/ketty">ketty</a></p>
+<p>李林峰老师编写的netty权威指南（第二版）对应的源码  <a target="_blank" rel="noopener" href="https://github.com/wuyinxian124/nettybook2">nettybook2</a></p>
+<p>使用Netty实现IMServer，支持Tcp和WebSocket实现。  <a target="_blank" rel="noopener" href="https://github.com/tonybase/netty-chat">netty-chat</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/zhousong/netty-tcp">netty-tcp</a></p>
+<p>TCP communication server with Netty And SpringBoot <a target="_blank" rel="noopener" href="https://github.com/zbum/netty-spring-example">netty-spring-example</a></p>
+<p>netty server client 自定义消息协议通讯 ，及心跳检测例子 <a target="_blank" rel="noopener" href="https://github.com/WangErXiao/ServerClient">ServerClient</a></p>
+<p>Netty project - an event-driven asynchronous network application framework <a target="_blank" rel="noopener" href="https://github.com/netty/netty">netty</a></p>
+<h2 id="nginx"><a href="#nginx" class="headerlink" title="nginx"></a>nginx</h2><p><a target="_blank" rel="noopener" href="https://github.com/taobao/nginx-book">nginx-book</a></p>
+<p>add the feature of tcp proxy with nginx, with health check and status monitor <a target="_blank" rel="noopener" href="https://github.com/yaoweibin/nginx_tcp_proxy_module">nginx_tcp_proxy_module</a></p>
+<h2 id="加密"><a href="#加密" class="headerlink" title="加密"></a>加密</h2><p>AES+RSA结合应用java示例 <a target="_blank" rel="noopener" href="https://github.com/wustrive2008/aes-rsa-java">aes-rsa-java</a></p>
+<p>aes-256-cbc encrypt and decrypt examples <a target="_blank" rel="noopener" href="https://github.com/fukata/AES-256-CBC-Example">AES-256-CBC-Example</a></p>
+<h2 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h2><p>Machine learning resources，including algorithm, paper, dataset, example and so on. <a target="_blank" rel="noopener" href="https://github.com/csuldw/MachineLearning">MachineLearning</a></p>
+<h2 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h2><p>A magical vue admin  <a target="_blank" rel="noopener" href="https://github.com/PanJiaChen/vue-element-admin">vue-element-admin</a></p>
+<p>Vue 2.0 admin management system template based on iView <a target="_blank" rel="noopener" href="https://github.com/iview/iview-admin">iview-admin</a></p>
+<p>admin template based on vuejs2 and element. <a target="_blank" rel="noopener" href="https://github.com/taylorchen709/vue-admin">vue-admin</a></p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>首款微信 macOS 客户端撤回拦截与多开 <a target="_blank" rel="noopener" href="https://github.com/Sunnyyoung/WeChatTweak-macOS">WeChatTweak-macOS</a></p>
+<p>The Ethereum Improvement Proposal repository <a target="_blank" rel="noopener" href="https://github.com/ethereum/EIPs">EIPs</a></p>
+<p>小马哥java训练营 <a target="_blank" rel="noopener" href="https://github.com/mercyblitz/geekbang-lessons">geekbang-lessons</a></p>
+<p>A beautiful hexo blog theme with material design and responsive design.一个基于材料设计和响应式设计而成的全面、美观的Hexo主题。国内访问：<a target="_blank" rel="noopener" href="http://blinkfox.com/">http://blinkfox.com</a>          <a target="_blank" rel="noopener" href="https://github.com/blinkfox/hexo-theme-matery">hexo-theme-matery</a></p>
+<p>Tesseract Open Source OCR Engine (main repository)  <a target="_blank" rel="noopener" href="https://github.com/tesseract-ocr/tesseract">tesseract</a></p>
+<p>超轻量级中文ocr，支持竖排文字识别, 支持ncnn推理 ( dbnet(1.8M) + crnn(2.5M) + anglenet(378KB)) 总模型仅4.7M   <a target="_blank" rel="noopener" href="https://github.com/DayBreak-u/chineseocr_lite">chineseocr_lite</a></p>
+<p>cim(cross IM) 适用于开发者的分布式即时通讯系统 <a target="_blank" rel="noopener" href="https://github.com/crossoverJie/cim">cim</a></p>
+<p>简单换脸、人脸对齐、关键点定位与画图 <a target="_blank" rel="noopener" href="https://github.com/mattzheng/Face_Swapping">Face_Swapping</a></p>
+<p>第三方支付对接全能支付Java开发工具包   <a target="_blank" rel="noopener" href="https://github.com/egzosn/pay-java-parent">pay-java-parent</a></p>
+<p>OpenMajiang, 一个完整的麻将软件（h5 + app） <a target="_blank" rel="noopener" href="https://github.com/zuoge85/OpenMajiang">OpenMajiang</a> </p>
+<p>雪球股票信息超级爬虫 <a target="_blank" rel="noopener" href="https://github.com/decaywood/XueQiuSuperSpider">XueQiuSuperSpider</a></p>
+<p>微信开发 Java SDK ，支持包括微信支付，开放平台，小程序，企业微信，公众号等的后端开发 <a target="_blank" rel="noopener" href="https://github.com/Wechat-Group/WxJava">WxJava</a></p>
+<p>MPush开源实时消息推送系统 <a target="_blank" rel="noopener" href="https://github.com/mpusher/mpush">mpush</a></p>
+<p>The missing Java distribution of native C++ libraries <a target="_blank" rel="noopener" href="https://github.com/bytedeco/javacpp-presets">javacpp-presets</a></p>
+<p>自然语言处理 <a target="_blank" rel="noopener" href="https://github.com/hankcs/HanLP">HanLP</a></p>
+<p>如何去提问 <a target="_blank" rel="noopener" href="https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way">How-To-Ask-Questions-The-Smart-Way</a></p>
+<h2 id="大数据"><a href="#大数据" class="headerlink" title="大数据"></a>大数据</h2><p><a target="_blank" rel="noopener" href="https://github.com/wangzhiwubigdata/God-Of-BigData">God-Of-BigData</a></p>
+<h2 id="要去写的内容"><a href="#要去写的内容" class="headerlink" title="要去写的内容"></a>要去写的内容</h2><p><a target="_blank" rel="noopener" href="https://github.com/JavaCourse00/JavaCourseCodes">JavaCourseCodes homework 2.0</a></p>
+<h2 id="项目【全】"><a href="#项目【全】" class="headerlink" title="项目【全】"></a>项目【全】</h2><p>基于SOA架构的分布式电商购物商城 前后端分离 前台商城:Vue全家桶 后台管理系统   <a target="_blank" rel="noopener" href="https://github.com/Exrick/xmall">xmall</a></p>
+<p>分布式敏捷开发系统架构，提供整套公共微服务服务模块 <a target="_blank" rel="noopener" href="https://github.com/shuzheng/zheng">zheng</a></p>
+<p>Java Web工程demo 后端：spring + spring mvc + mybatis + maven，涉及定时任务quartz、ehcache缓存、RESTful API、邮件发送… 前端：react + reflux + webpack，涉及ES6、jquery、react-router、ant design等内容  <a target="_blank" rel="noopener" href="https://github.com/peterchenhdu/webbf">webbf</a></p>
+<p>Java企业应用开源框架 <a target="_blank" rel="noopener" href="https://github.com/thinkgem/jeesite">jeesite</a></p>
+<p>龙果支付系统（roncoo-pay）国内首款开源的互联网支付系统  <a target="_blank" rel="noopener" href="https://github.com/roncoo/roncoo-pay">roncoo-pay</a></p>
+<h2 id="开源-amp-源码"><a href="#开源-amp-源码" class="headerlink" title="开源&amp;源码"></a>开源&amp;源码</h2><p><a target="_blank" rel="noopener" href="https://github.com/dromara">https://github.com/dromara</a></p>
+<p><a target="_blank" rel="noopener" href="https://shimo.im/folder/Jd3cwkHwyPqKcDgR">梦码</a></p>
+<p>High-Performance Java API Gateway <a target="_blank" rel="noopener" href="https://github.com/dromara/soul">soul</a></p>
+<p>Distributed transaction solutions <a target="_blank" rel="noopener" href="https://github.com/dromara/hmily">hmily</a></p>
+<p>Jupiter是一款性能非常不错的, 轻量级的分布式服务框架 <a target="_blank" rel="noopener" href="https://github.com/fengjiachun/Jupiter">Jupiter</a></p>
+<p>Apache Dubbo is a high-performance, java based, open source RPC framework. <a target="_blank" rel="noopener" href="https://github.com/apache/dubbo">dubbo</a> </p>
+<p>Enterprise Stream Process Engine  <a target="_blank" rel="noopener" href="https://github.com/alibaba/jstorm">jstorm</a></p>
+<p>Tars is a high-performance RPC framework based on name service and Tars protocol, also integrated administration platform, and implemented hosting-service via flexible schedule. <a target="_blank" rel="noopener" href="https://github.com/TarsCloud/Tars">Tars</a></p>
+<h2 id="官方文档"><a href="#官方文档" class="headerlink" title="官方文档"></a>官方文档</h2><p><a target="_blank" rel="noopener" href="https://dubbo.apache.org/zh/docs/v2.7/">Dubbo 2.7 文档</a></p>
+<h1 id="以下为文本记录的一些内容"><a href="#以下为文本记录的一些内容" class="headerlink" title="以下为文本记录的一些内容"></a>以下为文本记录的一些内容</h1><h1 id="java-1"><a href="#java-1" class="headerlink" title="java"></a>java</h1><h2 id="java基础"><a href="#java基础" class="headerlink" title="java基础"></a>java基础</h2><p>​    </p>
+<h1 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h1><p>编程范式：面向对象编程，函数式编程</p>
+<p>数据结构</p>
+<p>算法</p>
+<p>操作系统（进程，线程，多核，物理内存，虚拟内存，文件系统，进程间通信。计算机中的CPU，GPU，磁盘，性能）</p>
+<p>数据库</p>
+<p>网络协议</p>
+<p>分布式系统</p>
+<h1 id="JVM-1"><a href="#JVM-1" class="headerlink" title="JVM"></a>JVM</h1><h2 id="jvm基础"><a href="#jvm基础" class="headerlink" title="jvm基础"></a>jvm基础</h2><h2 id="java字节码技术"><a href="#java字节码技术" class="headerlink" title="java字节码技术"></a>java字节码技术</h2><h2 id="jvm类加载器"><a href="#jvm类加载器" class="headerlink" title="jvm类加载器*"></a>jvm类加载器*</h2><h2 id="java内存模型"><a href="#java内存模型" class="headerlink" title="java内存模型*"></a>java内存模型*</h2><h2 id="jvm启动参数"><a href="#jvm启动参数" class="headerlink" title="jvm启动参数"></a>jvm启动参数</h2><h1 id="学习路径"><a href="#学习路径" class="headerlink" title="学习路径"></a>学习路径</h1><h2 id="20210325"><a href="#20210325" class="headerlink" title="20210325"></a>20210325</h2><p>完成了github上资源收集的内容收集到此文档，可以先根据有的知识导图的进行梳理，网上的知识导图先看看是这么说的</p>
+<h2 id="20210408"><a href="#20210408" class="headerlink" title="20210408"></a>20210408</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/luckykapok918/article/details/50186797">Java对象创建之new关键字和newinstance()方法</a></p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">欧葵</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://cutieagain.github.io/temp/%E9%99%88%E5%A5%95%E6%89%AC/Java98k.html">http://cutieagain.github.io/temp/%E9%99%88%E5%A5%95%E6%89%AC/Java98k.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">欧葵</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/">
+                                    <span class="chip bg-color"></span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/temp/%E9%99%88%E5%A5%95%E6%89%AC/Java98k.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="Java98k">
+                        
+                        <span class="card-title">Java98k</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-24
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/" class="post-category">
+                                    
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/">
+                        <span class="chip bg-color"></span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                本篇&nbsp;<i class="far fa-dot-circle"></i>
+            </div>
+            <div class="card">
+                <a href="/temp/%E9%99%88%E5%A5%95%E6%89%AC/Java98k.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="Java98k">
+                        
+                        <span class="card-title">Java98k</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-24
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/" class="post-category">
+                                    
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/">
+                        <span class="chip bg-color"></span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="366499907"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">欧葵</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">212.4k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/cutieagain" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:330449857@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=330449857" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 330449857" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

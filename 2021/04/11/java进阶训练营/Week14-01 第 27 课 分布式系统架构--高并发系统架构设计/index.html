@@ -1,0 +1,1605 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Week14-01 第 27 课 分布式系统架构--高并发系统架构设计, 欧葵小站">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Week14-01 第 27 课 分布式系统架构--高并发系统架构设计 | 欧葵小站</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">欧葵小站</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">欧葵小站</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/cutieagain" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/cutieagain" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Week14-01 第 27 课 分布式系统架构--高并发系统架构设计</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4/">
+                                <span class="chip bg-color">极客时间</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%A7%A6%E9%87%91%E5%8D%AB/">
+                                <span class="chip bg-color">秦金卫</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%9E%81%E5%AE%A2%E5%A4%A7%E5%AD%A6/">
+                                <span class="chip bg-color">极客大学</span>
+                            </a>
+                        
+                            <a href="/tags/Java-%E8%BF%9B%E9%98%B6%E8%AE%AD%E7%BB%83%E8%90%A5/">
+                                <span class="chip bg-color">Java 进阶训练营</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/java/" class="post-category">
+                                java
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-04-11
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2021-04-16
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    7.6k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    26 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>极客大学 Java 进阶训练营 </p>
+<p>第 27 课 </p>
+<h1 id="分布式系统架构–高并发系统架构设计"><a href="#分布式系统架构–高并发系统架构设计" class="headerlink" title="分布式系统架构–高并发系统架构设计"></a>分布式系统架构–高并发系统架构设计</h1><p>KimmKing </p>
+<p>Apache Dubbo/ShardingSphere PMC</p>
+<p><strong>个人介绍</strong> </p>
+<p>Apache Dubbo/ShardingSphere PMC </p>
+<p>前某集团高级技术总监/阿里架构师/某银行北京研发中心负责人 </p>
+<p>阿里云 MVP、腾讯 TVP、TGO 会员 </p>
+<p>10 多年研发管理和架构经验 </p>
+<p>熟悉海量并发低延迟交易系统的设计实现</p>
+<p><strong>目录</strong></p>
+<p>1.到底什么是架构设计 </p>
+<p>2.系统架构的演化发展* </p>
+<p>3.架构设计形式与方法* </p>
+<p>4.架构的一些实践经验 </p>
+<p>5.总结回顾与作业实践</p>
+<h2 id="第-27-课-1-到底什么是架构设计"><a href="#第-27-课-1-到底什么是架构设计" class="headerlink" title="第 27 课 1. 到底什么是架构设计"></a>第 27 课 1. 到底什么是架构设计</h2><h3 id="什么是架构（Architecture）"><a href="#什么是架构（Architecture）" class="headerlink" title="什么是架构（Architecture）"></a><strong>什么是架构（Architecture）</strong></h3><p>架构（Architecture）一词源于建筑领域，就是建筑的意思，也是体系结构的意思。 </p>
+<p>维基百科英文版里对Architecture的解释是：规划、设计和建造建筑物的过程及产物。 </p>
+<p>Architect/Architecture ? </p>
+<p>软件工程 ~ 建筑工程 </p>
+<p>- 人的因素， </p>
+<p>- 标准的因素， </p>
+<p>- 技术的因素, </p>
+<p>- 产品的因素，，，软件边际成本是0。 </p>
+<p>为什么建筑工程如此成熟？</p>
+<p>国际标准化组织（International Orgranization for Standardization，ISO）系统和软 件工程标准认为，系统的架构是一系列基本概念或者系统在其环境中表现出来的属性， </p>
+<p>体现在它的元素、关系及设计和发展的原则中。 </p>
+<p>1.架构过程：在系统整个生命周期中构思、定义、表达、记录、交流，验证合适实现，维护和改 进架构的过程，也就是设计过程。 </p>
+<p>2.架构：一个系统体现在其环境中的元素、关系的基本概念或属性，以及其设计和进化原则。 </p>
+<p>3.架构描述：表达一个架构的工作产出物（通常指的是各种架构图和设计文档）。 </p>
+<p>4.架构视图：通过系统的某些关注点的视角，表达一个系统的工作产出物（例如部署视图、开发 视图等）。 </p>
+<p>5.系统：包含了一个或多个进程，硬件，软件，工具与可以满足需求的人的集合。 </p>
+<p>6.环境：决定了开发、操作、策略和其他影响系统的设置和条件。</p>
+<p>总结：<code>软件架构是一个用于指导系统实现的草图，这个草图越详细对于系统实现的指导 意义越重大，贯穿于软件的整个生命周期。</code> </p>
+<p>在建筑领域，大楼尚未建造前，就已经存在于建筑师的脑海里；同样地，系统开始编写 第一行代码之前，就已经存在于软件架构师的心里。至于怎么样把架构草图表达出来呢？ </p>
+<p>我们一般都是采用架构图和设计文档的形式。 </p>
+<p>架构相关的文档就是，用来描述和交流系统架构的媒介。</p>
+<h3 id="架构的一些概念"><a href="#架构的一些概念" class="headerlink" title="架构的一些概念"></a><strong>架构的一些概念</strong></h3><p>架构领域长时间发展，积累了很多的概念和基础知识。 </p>
+<p>例如，我们经常说得软件领域名词还有模式、组件、服务、模块、类库、框架，平台等， </p>
+<p>他们跟架构有什么关系和区别呢？</p>
+<h4 id="架构的一些概念-模式"><a href="#架构的一些概念-模式" class="headerlink" title="架构的一些概念-模式"></a><strong>架构的一些概念-模式</strong></h4><p>模式是表示上下文环境、动机、解决方案三个方面关系的一个规则，每个模式描述了一 </p>
+<p>个在特定上下文环境里不断重复发生的问题的一类解决方案。UML中给出的解释更通 </p>
+<p>俗易懂：模式是对于普遍问题的普遍解决方案。 </p>
+<p>我们把一类问题的共性抽象出来，这样就可以用同样的处理办法去解决这些问题，从而 </p>
+<p>形成模式，所以模式是一些经验的总结。 </p>
+<p>从这个角度来说，软件架构作为一种软件设计过程的指导准则，也是一些经验的积累和 </p>
+<p>问题的抽象，同样也可以作为一种模式。 </p>
+<p>更一般的，依据于处理问题领域的粒度不同，我们可以把模式分为架构模式(Architectural </p>
+<p>Pattern)、设计模式(Design Pattern)、实现模式(Implementation Pattern)三个层次。 </p>
+<p>• 架构模式是最高层次的模式，在软件过程里描述系统的基础结构、子系统划分，确定职责和边 </p>
+<p>界，以及相互作用关系。 </p>
+<p>• 设计模式是用来处理解决程序设计里具体场景下的问题的解决办法。 </p>
+<p>• 实现模式是最低层次的具体问题处理办法，例如编码规范、命名规则等。</p>
+<h4 id="架构的一些概念-类库"><a href="#架构的一些概念-类库" class="headerlink" title="架构的一些概念-类库"></a><strong>架构的一些概念-类库</strong></h4><p>类库（Library）是一组可复用的功能或工具的集合，应用系统通过调用它们从而达到 </p>
+<p>复用功能的目的。 </p>
+<p>例如，windows应用开发里的各种静态或动态链接库DLL文件，Java开发里项目里依赖 </p>
+<p>的或者maven中央库里的各种jar包，都是Library，比如apache commons-io、 </p>
+<p>httpclient，log4j等。 </p>
+<p>类库根据其所在的语言或平台环境的不同，可以是编译后的二进制执行码或中间码形式 </p>
+<p>（DLL或jar），也可以是源代码（PHP、NodeJS里的类库）。类库的调用关系一般在 </p>
+<p>开发期引入到目标应用的项目中，运行期执行实际调用。</p>
+<h4 id="架构的一些概念-框架"><a href="#架构的一些概念-框架" class="headerlink" title="架构的一些概念-框架"></a><strong>架构的一些概念-框架</strong></h4><p>框架是基于一组类库或工具，在特定领域里根据一定的规则组合成的、开放性的应用骨 </p>
+<p>架，比如SSM/SSH框架，甚至Dotnetfx、JDK都算是一种框架。框架具有如下特性： </p>
+<p>a）支撑性+扩展性：框架不解决具体的业务功能问题，我们可以在框架的基础上添加各种具体的业务功能、 </p>
+<p>定制特性，从而形成具体的业务应用系统。 </p>
+<p>b）聚合性+约束性：框架是多种技术点的按照一定规则的聚合体。我们采用了某种框架也就意味着做出了技 </p>
+<p>术选型的取舍。在很多种可能的技术组合里确定了一种具体的实现方式，后续的其他工作都会从这些技术出 </p>
+<p>发，也需要遵循这些规则，所以框架本身影响到研发过程里的方方面面。 </p>
+<p>在一个具体的框架之上添加一些基本或可复用的功能，这时候就得到一个介于框架和应 </p>
+<p>用之间的结构，我们一般叫脚手架（Scaffold），可以用来快速的实现类似项目。</p>
+<h4 id="架构的一些概念-模块"><a href="#架构的一些概念-模块" class="headerlink" title="架构的一些概念-模块"></a><strong>架构的一些概念-模块</strong></h4><p>模块（Module） </p>
+<p>模块是业务或系统的按照特定维度的一种切分，同时也可以看做是各种功能按照某种分 </p>
+<p>类聚合的一种形式。例如我们的一个电商系统，可以从业务上划分为用户模块，商品模 </p>
+<p>块，订单模块，支付模块，物流模块，售后模块等。另一方面，我们也可以说用户模块 </p>
+<p>聚合了用户注册、用户验证等业务功能。这样，我们在设计和开发过程中，就可以按照 </p>
+<p>模块的维度去组织，比如每个模块新建一个源码的子项目（subproject）、打包成一个 </p>
+<p>单独的jar包，也可以放到一个项目里用不同的package名称来区分等。模块一般是系 </p>
+<p>统在较大粒度上的解耦切分，仅次于系统或子系统的级别。</p>
+<p><strong>架构的一些概念-组件</strong> </p>
+<p>组件（Component） </p>
+<p>组件是一组可以复用的业务功能的集合，包含一些对象及其行为。组件可以直接被用做 </p>
+<p>业务系统的组成部分，粒度一般小于模块，也是一种功能的聚合形式。比如日志组件、 </p>
+<p>权限组件等。根据组件的形式、行为和用途的不同，我们又可以延伸一些概念： </p>
+<p>• 构件（Composite）：具有层次组合关系的多个组件组合形成的复杂组件形式。比如RCP里一个Window </p>
+<p>里左边嵌套一个TreeView组件、右边添加一个GridView组件，这样就形成了一个Composite构件。 </p>
+<p>• 部件（Widget）：部件主要是有UI界面的构件，比如Windows 7或Mac系统自带的桌面天气小部件等。 </p>
+<p>• 插件（Plugin）：系统运行期间可以即插即用、随时停用卸载的组件，一般有确定的生命周期，比如 </p>
+<p>google Atom编辑器的各种插件、OSGi中的bundle、Eclipse插件（本质上也是OSGi的bundle）等。</p>
+<h4 id="架构的一些概念-服务"><a href="#架构的一些概念-服务" class="headerlink" title="架构的一些概念-服务"></a><strong>架构的一些概念-服务</strong></h4><p>服务（Service） </p>
+<p>结构化信息标准促进组织（Organization for the Advancement of Structured </p>
+<p>Information Standards，简称OASIS，XML和WebService规范就是这个组织提出的） </p>
+<p>把服务定义为： </p>
+<p><em>一种允许访问一个或多个功能的机制，其中访问需要使用规定的接口，并且与服务描述中指定的</em> </p>
+<p><em>约束和策略一致（a mechanism to enable access to one or more capabilities, where the</em> </p>
+<p><em>access is provided using a prescribed interface and is exercised consistent with</em> </p>
+<p><em>constraints and policies as specified by the service description）。</em> </p>
+<p>概括来说，服务是一组对外提供业务处理能力的功能，服务需要使用明确的接口方式 </p>
+<p>（比如WebService或Rest等），服务描述里应该包括约束和策略（比如参数、返回值， </p>
+<p>使用什么通讯协议和数据格式等）。</p>
+<h4 id="架构的一些概念-平台"><a href="#架构的一些概念-平台" class="headerlink" title="架构的一些概念-平台"></a><strong>架构的一些概念-平台</strong></h4><p>平台（Platform） </p>
+<p>一般来说，平台是一个领域或方向上的生态系统，是很多解决方案的集大成者，提供了 </p>
+<p>很多的服务、接口、规范、标准、功能、工具等。例如J2EE平台，包含了企业级应用 </p>
+<p>开发里的各种基于Java语言和JVM虚拟机运行时的技术能力。 </p>
+<p>• 库是工具箱。 </p>
+<p>• 框架是一套通用的解决方案。 </p>
+<p>• 架构是高度抽象的需求，是系统中的不变量。 </p>
+<p>• 平台是所有可能做的事的集合。 </p>
+<p>事实上，服务、平台、架构这几个概念这几年已经被泛化了，什么地方都可以滥用这几 </p>
+<p>个词，随便一个系统都可以说自己是大数据平台，XX业务平台，XXX服务化架构。 </p>
+<p>一个SOA的真实笑话。</p>
+<h4 id="从软件生命周期看架构"><a href="#从软件生命周期看架构" class="headerlink" title="从软件生命周期看架构"></a><strong>从软件生命周期看架构</strong></h4><p>软件生命周期可以概况为3个大的周期：设计期（包括立项、计划、技术选型与方案 等）、实现期（包括开发、测试、发布、实施等）、运行期（或维护期，包括修复bug、 新增功能、多版本维护等）。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/cutieagain/images@main/20210415205515.png" alt="image-20210415205509976"></p>
+<p>1、设计期，软件作为一个成品还不存在，所以我们可以称之为概念形态。此时架构师、 产品经理或需求分析师等人员利用自己的经验能力，对系统的业务需求进行分析、拆解、 抽象，形成业务文档和技术文档，以及技术验证代码等。这个阶段，架构设计工作是重 中之重，其中包括： </p>
+<p>\1. 系统分拆，如何把系统拆解为不同的子系统、模块、业务单元； </p>
+<p>\2. 技术选型，使用什么样的基础技术框架或脚手架； </p>
+<p>\3. 技术验证，确定核心技术难点如何解决，检验能否满足期望指标； </p>
+<p>\4. 接口规范，系统的内部不同部分以何种形式确定接口契约和数据通信； </p>
+<p>\5. 集成方式，系统与外部其他业务系统如何进行集成； </p>
+<p>\6. 技术规范，如何规范开发、测试、部署和运维的技术标准性； </p>
+<p>\7. 部署方案，系统如何进行物理部署，需要多少机器、什么配置，对网络有什么要求； </p>
+<p>\8. 运维方案，系统如何进行技术性运维，如何日常监控、预警报警； </p>
+<p>总结一下：业务为要，架构先行（包括业务架构和技术架构）。</p>
+<p>2、实现期，这个阶段主要是编码与测试，准备部署上线，是软件从代码到最终的生产 系统的过程，我们可以称之为代码形态。此阶段需要考虑的技术类工作包括： </p>
+<p>\1. 确保各项技术规范和技术指标的执行落地，保障高质量的代码； </p>
+<p>\2. 指导研发人员和解决各类技术问题，提升研发团队效率； </p>
+<p>\3. 制定测试的技术性方案和基准，自动化、性能、安全等； </p>
+<p>\4. 配合准备部署环境，运维实施方案落地等； </p>
+<p>实现期的主要任务是大量软件工程师根据设计期的设计编码。大量的人员，大家背景不 </p>
+<p>同，知识储备不同，编程水平和习惯不同，努力程度不同，如何能够让所有工程师都既 </p>
+<p>能够按数量保障项目进度，又能够按质量保障软件品质呢？秘诀就在于：技术标准的精 </p>
+<p>确统一，系统部件的良好拆分，此外最好有适合于此类项目的脚手架，随时能解决各位 </p>
+<p>技术难点问题的救火队。系统部件的良好拆分，保障了任务是可以拆散成一个个的小单 </p>
+<p>元，分发给不同的开发者。技术标准的精确统一，可以实现不同个体的产出物最大程度 </p>
+<p>的一致性。总结为，标准统一，快速开发。</p>
+<p>3、运行期，这个阶段系统上线、验收通过，已经初步稳定，然后进入维护阶段，成为 </p>
+<p>了设计期架构设计草图的一个可用实例，我们可以称之为实例形态。此时需要考虑： </p>
+<p>\1. 发布上线相关基础性工作，包括是否使用持续集成（CI)、自动化发布等技术； </p>
+<p>\2. 运维基础性工作，自动化运维，监控等相关技术； </p>
+<p>进入维护期以后，软件系统日常通过内外部用户反馈的问题和改进意见，不时需要修改 </p>
+<p>代码发布补丁版本或者调整数据以满足用户需要。经过较长一段时间，业务模式和内外 </p>
+<p>部环境发生了比较大的变化以后，系统简单的补丁维护可能就不能满足用户需求，需要 </p>
+<p>大范围的添加新功能和修改旧功能的逻辑流程，此时就可以成立专门的团队，重复上面 </p>
+<p>的步骤，基于现有系统重新做一些改造性的设计重构（设计期），再编码实现（实现 </p>
+<p>期），最终再发布一个较大的版本（运行期）。总结为，基础设施，监控运维。 </p>
+<p>在软件的整个生命周期里，架构师或架构组是一个项目或者产品线的技术负责人，再大 </p>
+<p>一点的组织，比如公司或研发中心级别层面也许还有架构部，架构师、架构组、架构部 </p>
+<p>在不同层面对自己工作涉及到的所有技术问题负责。 </p>
+<p>其实上面罗列的这些工作汇总一下，再加上技术规划与执行落地、技术人才的选拔与培 </p>
+<p>养等，可以作为项目组架构师或者研发团队架构组的工作职责。</p>
+<h2 id="第-27-课-2-系统架构的演化发展"><a href="#第-27-课-2-系统架构的演化发展" class="headerlink" title="第 27 课 2. 系统架构的演化发展"></a>第 27 课 2. 系统架构的演化发展</h2><h3 id="架构发展演化"><a href="#架构发展演化" class="headerlink" title="架构发展演化"></a><strong>架构发展演化</strong></h3><p>从软件架构的整体风格来说，大致目前有如下几个阶段。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/cutieagain/images@main/20210416072517.png" alt="image-20210416072517438"></p>
+<h4 id="架构发展演化–以电商为例"><a href="#架构发展演化–以电商为例" class="headerlink" title="架构发展演化–以电商为例"></a><strong>架构发展演化–以电商为例</strong></h4><p>1.0 单体版本~ asp/jsp/php 为代表， </p>
+<p>一般以提升硬件性能来提升系统处理能力 </p>
+<p>![image-20210416072535024](/Users/cutie/Library/Application Support/typora-user-images/image-20210416072535024.png)</p>
+<p>业务系统 数据库 </p>
+<p>用户请求 </p>
+<p>用户请求 </p>
+<p>用户请求</p>
+<p><strong>架构发展演化–以电商为例</strong> </p>
+<p>2.0 垂直架构 ~ 关注于大规模Java应用开发，以分层为软件层面的设计原则， </p>
+<p>大规模的集群部署方式：涉及负载均衡，反向代理，Spring/ORM等框架。 </p>
+<p><img src="https://cdn.jsdelivr.net/gh/cutieagain/images@main/20210416072549.png" alt="image-20210416072549413"></p>
+<p>负载均衡 数据库 </p>
+<p>用户请求 </p>
+<p>用户请求 </p>
+<p>用户请求 </p>
+<p>业务系统 </p>
+<p>业务系统 </p>
+<p>业务系统</p>
+<p><strong>架构发展演化–以电商为例</strong> </p>
+<p>3.0 SOA/分布式服务化版本，以RPC与前后端分离为代表。 </p>
+<p>引入数据库中间件和复制技术，解决数据库高可用和容量。 </p>
+<p>引入缓存，解决热点读问题。 </p>
+<p>引入全文检索，解决海量的复杂条件查询问题。 </p>
+<p><img src="https://cdn.jsdelivr.net/gh/cutieagain/images@main/20210416072604.png" alt="image-20210416072603978"></p>
+<p>数据库 </p>
+<p>负载均衡 </p>
+<p>静态资源 </p>
+<p>用户请求 </p>
+<p>用户请求 </p>
+<p>用户请求 </p>
+<p>服务B集群 </p>
+<p>服务A集群 </p>
+<p>服务C集群 </p>
+<p>web应用B </p>
+<p>web应用A </p>
+<p>web应用C </p>
+<p>数据库 </p>
+<p>集群</p>
+<p><strong>架构发展演化–以电商为例</strong> </p>
+<p>4.0 微服务版本：大规模分布式服务化+容器化+治理化。 </p>
+<p>对业务和数据库进行拆分，简化系统复杂度和独立演进。 </p>
+<p>关注与服务治理和监控，系统稳定和可用性。 </p>
+<p>引入分布式缓存，分布式文件系统， </p>
+<p><img src="https://cdn.jsdelivr.net/gh/cutieagain/images@main/20210416072625.png" alt="image-20210416072625664"></p>
+<p>数据库 </p>
+<p>负载均衡 </p>
+<p>静态资源 </p>
+<p>用户请求 </p>
+<p>用户请求 </p>
+<p>用户请求 </p>
+<p>服务B集群 </p>
+<p>服务A集群 </p>
+<p>服务C集群 </p>
+<p>API网关 </p>
+<p>服务治理 </p>
+<p>数据库 </p>
+<p>数据库 </p>
+<p>集群 </p>
+<p>可观测性 </p>
+<p>分布式事务 </p>
+<p>权限认证 </p>
+<p>流控安全</p>
+<p><strong>架构发展演化–以电商为例</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/cutieagain/images@main/20210416072640.png" alt="image-20210416072640085"></p>
+<h2 id="第-27-课-3-架构设计形式与方法"><a href="#第-27-课-3-架构设计形式与方法" class="headerlink" title="第 27 课 3. 架构设计形式与方法"></a>第 27 课 3. 架构设计形式与方法</h2><h3 id="架构的形式-以文档和代码呈现"><a href="#架构的形式-以文档和代码呈现" class="headerlink" title="架构的形式: 以文档和代码呈现"></a><strong>架构的形式: 以文档和代码呈现</strong></h3><p>我们一般说的<code>架构既包括架构的设计过程，也包括设计的产出物，一般可以包括各类设计文档、设计图，也可以包括一些技术验证代码、Demo或者其他相关程序。</code>文档的目 的在于准确记录我们的思维产物，在软件尚未实现时，作为指导蓝图，尽量精确的描述 清楚软件。 </p>
+<p>在软件已经实现以后，部署运行的软件实例和代码只能说明软件目前是什么状态的，却 无法告诉我们这个软件系统中间的决策信息。 </p>
+<p>一个软件系统的长期稳定发展，必然需要一个可靠的、随着软件本身的维护不断同步更 新的文档作为每次变更的出发点。这样，我们可以随时沿着架构相关的文档逆流而上， 了解这个软件系统从整体到具体的设计思路。 </p>
+<p>同时文档作为结项或交接的一部分，也是整个软件项目的产出物的一部分，成为公司IT 资产的有机组成部分。</p>
+<p><strong>架构的形式: 以文档和代码呈现</strong> </p>
+<p><code>文档是设计的载体，代码是系统功能实现的载体</code>，技术和业务最终都有很大一部分体现 在代码里。 </p>
+<p>广义上来说，代码和代码里的注释，都可以认为是文档的一部分。社区有一种观点：良 好结构的、可读性强的代码，是最好的“文档”。 </p>
+<p>那么怎么才能写出好的代码呢？关键在于两个词：经验、重构。 </p>
+<p>从代码里，我们可以很直观的了解到，程序做了什么、不能做到什么，以及能做到什么 程度，以及其与相关的文档（包括业务文档和技术文档）是否一致。但是代码不适合作 为唯一的“文档”，只有代码没有其他文档，就像是一部只有结尾没有开头和过程的电影。 我们只能了解到这个系统的一个现在时间点的切面影像。</p>
+<h3 id="如何用文档说清楚架构设计呢？"><a href="#如何用文档说清楚架构设计呢？" class="headerlink" title="如何用文档说清楚架构设计呢？"></a><strong>如何用文档说清楚架构设计呢？</strong></h3><p>为了清晰的描述软件架构设计，我们就引入了一个概念：架构视图。什么是架构视图呢？ </p>
+<p>Philippe Kruchten在其著作《Rational统一过程引论》中写道： </p>
+<p><em>一个架构视图是对于从某一视角或某一点上看到的系统所做的简化描述，描述中涵盖了系统的某一特定方面，而省略了于此方面无关的实体。</em> </p>
+<p>也就是说我们可以使用从不同视角分别描述同一个架构设计，最后把这多个视角的设计 综合到一起，就是这个系统的完整架构设计了。这些不同角度的设计文档，也成为了我 们理解一个系统的基本依据。 </p>
+<p>一个新的问题是：哪些视角可以作为全面描述一个系统架构的最核心视图呢？1995年， Philippe Kruchten在《IEEE Software》上发表了论文《4+1架构视图模型（The 4+1 View Model of Architecture）》，正式提出了使用场景视图、逻辑视图、开发视图、 进程视图、物理视图五个方面来描述架构设计，引起了业界的极大关注，并最终被后来 隶属于IBM的Rational软件公司统一软件开发过程方法论（Rational Unified Process， 简称RUP）所采纳。</p>
+<h3 id="如何用文档说清楚架构设计呢？-1"><a href="#如何用文档说清楚架构设计呢？-1" class="headerlink" title="如何用文档说清楚架构设计呢？"></a><strong>如何用文档说清楚架构设计呢？</strong></h3><p>在4+1视图模型中，不同架构视图承载不同的架构设计决策，支持不同的目标和用途。 </p>
+<p>概括来说，我们可以从场景视图的功能需求、逻辑视图的对象与交互、进程视图的进程 与通信、开发视图的项目开发组织结构、物理视图的网络与机器部署结构等这五个方面 来描述一个系统的架构设计，并形成文档、设计图等设计输出物，用于指导后续的软件 实现、测试、部署与维护等过程。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/cutieagain/images@main/20210416073031.png" alt="image-20210416073031402"></p>
+<p>\1. 用例视图（Use Cases View）：也叫场景视图，关注最终用户需求，为整个技术架构的上线文环境，通 </p>
+<p>常用UML用例图和活动图描述。 </p>
+<p>\2. 逻辑视图（Logical view）：主要是整个系统的抽象结构表述，关注系统提供最终用户的功能，不涉及具 </p>
+<p>体的编译即输出和部署，通常在UML中用类图，交互图，时序图来表述，类似与我们采用OOA的对象模 </p>
+<p>型。 </p>
+<p>\3. 开发视图（Development View）：描述软件在开发环境下的静态组织，从程序实现人员的角度透视系统， </p>
+<p>也叫做实现视图（Implementation View）。开发视图关注程序包，不仅包括要编写的源程序，还包括可 </p>
+<p>以直接使用的第三方SDK和现成框架、类库，以及开发的系统将运行于其上的系统软件或中间件, 在UML </p>
+<p>中用组件图，包图来表述。开发视图和逻辑视图之间可能存在一定的映射关系：比如逻辑层一般会映射到 </p>
+<p>多个程序包等。 </p>
+<p>\4. 进程视图（Process view）：进程视图关注系统动态运行时，主要是进程以及相关的并发、同步、通信等 </p>
+<p>问题。进程视图和开发视图的关系：开发视图一般偏重程序包在编译时期的静态依赖关系，而这些程序运 </p>
+<p>行起来之后会表现为对象、线程、进程，进程视图比较关注的正是这些运行时单元的交互问题，在UML中 </p>
+<p>通常用活动图表述。 </p>
+<p>\5. 物理视图（Physical view ）：物理视图通常也叫做部署视图(Deployment View)，是从系统工程师解读系 </p>
+<p>统，关注软件的物流拓扑结，以及如何部署机器和网络来配合软件系统的可靠性、可伸缩性等要求。物理 </p>
+<p>视图和处理视图的关系：处理视图特别关注目标程序的动态执行情况，而物理视图重视目标程序的静态位 </p>
+<p>置问题；物理视图是综合考虑软件系统和整个IT系统相互影响的架构视图。</p>
+<h3 id="更为系统化的架构方法论-TOGAF"><a href="#更为系统化的架构方法论-TOGAF" class="headerlink" title="更为系统化的架构方法论-TOGAF"></a><strong>更为系统化的架构方法论-TOGAF</strong></h3><img src="https://cdn.jsdelivr.net/gh/cutieagain/images@main/20210416073058.png" alt="image-20210416073058805" style="zoom:33%;">
+
+<img src="https://cdn.jsdelivr.net/gh/cutieagain/images@main/20210416073116.png" alt="image-20210416073116614" style="zoom:50%;">
+
+
+
+
+
+<h2 id="第-27-课-4-架构的一些实践经验架构设计服务于业务"><a href="#第-27-课-4-架构的一些实践经验架构设计服务于业务" class="headerlink" title="第 27 课 4. 架构的一些实践经验架构设计服务于业务"></a>第 27 课 4. 架构的一些实践经验<strong>架构设计服务于业务</strong></h2><p>正如19世纪的伟大建筑师路易斯•沙利文（Louis Sullivan）倡导的建筑设计著名格言： </p>
+<p>“功能决定形式（Form follows function）”，软件架构首先是要服务于业务功能的。 </p>
+<p>设计一栋大楼不管美不美观、大气不大气，首先需要考虑的是这栋大楼是做什么用得， </p>
+<p>是要开一个百货公司、还是一个跨国集团的总部大楼、还是当地市政府的办公大楼。 </p>
+<p>同理，架构首先也需要对业务负责。而业务也并非都是一成不变的，随着市场环境的变 </p>
+<p>化、用户习惯的变化、竞争格局的变化，业务形态也一直在顺应环境而改变，架构设计 </p>
+<p>也需要考虑系统在未来的一段时间内支撑这种调整。并且在满足了业务需求和一定的前 </p>
+<p>瞻性的基础上，综合考虑成本、周期、效率、速度、风险等因素。</p>
+<h3 id="架构影响研发团队的组织形式"><a href="#架构影响研发团队的组织形式" class="headerlink" title="架构影响研发团队的组织形式"></a><strong>架构影响研发团队的组织形式</strong></h3><p>业务拆分的方法和技术框架的选择必然会影响到研发团队的组织形式。 </p>
+<p>业务拆分的越细致，越有利于我们更好的对项目的各项指标量化计算，更精确的估计工 </p>
+<p>时和成本，从而指导我们每个小组应该分配多少资源，使用什么样的协同和任务确认形 </p>
+<p>式。</p>
+<p>反过来，研发组织的结构和成熟度也会对我们最终所采取的技术架构产生重要的影响。 </p>
+<p>比如一个由3个初级程序员组成的创业小团队不适于采取特别复杂且小众的开发框架。 </p>
+<p>相反地，利用快速开发框架或脚手架把产品设计迅速实现应该是团队的核心诉求，所以 </p>
+<p>某种全栈类的全家桶解决方案才可能是最适合的技术选择。</p>
+<h3 id="架构存在于每一个系统"><a href="#架构存在于每一个系统" class="headerlink" title="架构存在于每一个系统"></a><strong>架构存在于每一个系统</strong></h3><p>每一个已经实现并运行的系统，都是特定架构设计的载体。有些系统对应的架构，有详 </p>
+<p>细的设计文档来描述；有些系统的设计文档，残缺不全，甚至还因为在系统的发展变化 </p>
+<p>的同时，文档没有更新，导致设计文档与实际系统不符；有些系统干脆就没有设计文档。 </p>
+<p>但是这些系统，都是基于一定的架构来创建的。 </p>
+<p>每种架构方式，每个具体系统内所体现的架构设计，都是可以被工程师们理解，进而提 </p>
+<p>炼出来一些架构思想和设计原则，这些思想和原则就是这种架构方式的风格。 </p>
+<p>依据这些风格，我们可以将各种架构方式，进行分门别类，从而进一步讨论每种架构风 </p>
+<p>格的特点。例如在实现期的代码形式中，系统由各个相似的类库作为组件构成，在运行 </p>
+<p>期这些组件又同时在同一个进程中，这时我们可以认为这是一种“组件式单体架构风格”。</p>
+<h3 id="架构需要警惕过渡设计"><a href="#架构需要警惕过渡设计" class="headerlink" title="架构需要警惕过渡设计"></a><strong>架构需要警惕过渡设计</strong></h3><p>矫枉过正，过犹不及。 </p>
+<p>过渡设计，是一个特别常见的问题。 </p>
+<p>比如在做架构设计的时候，想当然把问题想复杂了，然后做了过于复杂化的方案。 </p>
+<p>做技术选型的时候，因为自己熟悉和顺手，选了看起来“高大上”，但是实际上不适合的 </p>
+<p>技术或者组件。</p>
+<h3 id="架构需要不断的发展演进"><a href="#架构需要不断的发展演进" class="headerlink" title="架构需要不断的发展演进"></a><strong>架构需要不断的发展演进</strong></h3><p>随着计算机软硬件的不断发展，软件架构思想也在不断的发展变化。同时软件为其提供 </p>
+<p>业务处理和服务能力的每个具体行业领域也在不断发展变化，业务处理流程、参与角色、 </p>
+<p>业务形式不断的推陈出新。 </p>
+<p>这就要求我们在系统架构设计时，保持终身学习的精神，持续吸收新思想新知识，保持 </p>
+<p>贴近一线业务群体，随时因地制宜，调整架构设计，采取最适合当下场景的解决方案。 </p>
+<p>同时对于存量的旧系统的维护与改造，很多时候无法一次达到目标，可以考虑循序渐进， </p>
+<p>设定几个大的里程碑，逐步推进，最终实现比较理想的架构设计。 </p>
+<p>多年以来多很多老旧系统改造的经历，对我影响最深的就是，循序渐进，终达目标，特 </p>
+<p>别是具体的设计实践中，思路和方法，比结论更重要。一个正确的结论在别处可能就是 </p>
+<p>错的，但是思路和方法确实可以复用的。只有通过不断的迭代更新自己的知识和思想， </p>
+<p>才能一直做出来最适合的架构设计。</p>
+<p><strong>第 27 课总结回顾</strong> </p>
+<p><strong>什么是架构设计</strong> </p>
+<p><strong>架构的演化发展</strong> </p>
+<p><strong>架构的形式方法</strong> </p>
+<p><strong>架构的一些经验</strong></p>
+<p><strong>第 27 课作业实践</strong> </p>
+<p>1、（选做）思考一下自己负责的系统，或者做过的系统，能否描述清楚其架构。 </p>
+<p>2、（选做）考虑一下，如果让你做一个针对双十一，某东某宝半价抢100个IPhone的 </p>
+<p>活动系统，你该如何考虑，从什么地方入手。 </p>
+<p>3、（选做）可以自行学习以下参考书的一两本。 </p>
+<p>推荐架构书籍： </p>
+<p>①《软件架构》Mourad Chabane Oussalah </p>
+<p>②《架构实战-软件架构设计的过程》Peter EeLes </p>
+<p>③《软件系统架构-使用视点和视角与利益相关者合作》Nick Rozanski </p>
+<p>④《企业IT架构转型之道》 </p>
+<p>⑤《大型网站技术架构演进与性能优化》 </p>
+<p>⑥《银行信息系统架构》 </p>
+<p>⑦《商业银行分布式架构实践》</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">欧葵</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://cutieagain.github.io/2021/04/11/java%E8%BF%9B%E9%98%B6%E8%AE%AD%E7%BB%83%E8%90%A5/Week14-01%20%E7%AC%AC%2027%20%E8%AF%BE%20%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84--%E9%AB%98%E5%B9%B6%E5%8F%91%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/">http://cutieagain.github.io/2021/04/11/java%E8%BF%9B%E9%98%B6%E8%AE%AD%E7%BB%83%E8%90%A5/Week14-01%20%E7%AC%AC%2027%20%E8%AF%BE%20%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84--%E9%AB%98%E5%B9%B6%E5%8F%91%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">欧葵</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4/">
+                                    <span class="chip bg-color">极客时间</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%A7%A6%E9%87%91%E5%8D%AB/">
+                                    <span class="chip bg-color">秦金卫</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%9E%81%E5%AE%A2%E5%A4%A7%E5%AD%A6/">
+                                    <span class="chip bg-color">极客大学</span>
+                                </a>
+                            
+                                <a href="/tags/Java-%E8%BF%9B%E9%98%B6%E8%AE%AD%E7%BB%83%E8%90%A5/">
+                                    <span class="chip bg-color">Java 进阶训练营</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2021/04/13/%E6%97%A5%E8%AE%B0/%E6%97%A5%E8%AE%B0-20210412/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="日记-20210412">
+                        
+                        <span class="card-title">日记-20210412</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            日记-20210412
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-13
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%97%A5%E8%AE%B0/" class="post-category">
+                                    日记
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%97%A5%E8%AE%B0/">
+                        <span class="chip bg-color">日记</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/04/11/java%E8%BF%9B%E9%98%B6%E8%AE%AD%E7%BB%83%E8%90%A5/Week13-02%20%E7%AC%AC%E4%BA%8C%E5%8D%81%E5%85%AD%E8%AF%BE%20%E5%88%86%E5%B8%83%E5%BC%8F%E6%B6%88%E6%81%AF--%E5%85%B6%E4%BB%96MQ%E4%BB%8B%E7%BB%8D%E4%B8%8E%E5%8A%A8%E6%89%8B%E5%86%99MQ/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Week13-02 第二十六课 分布式消息--其他MQ介绍与动手写MQ">
+                        
+                        <span class="card-title">Week13-02 第二十六课 分布式消息--其他MQ介绍与动手写MQ</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-11
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/java/" class="post-category">
+                                    java
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%9E%81%E5%AE%A2%E6%97%B6%E9%97%B4/">
+                        <span class="chip bg-color">极客时间</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%A7%A6%E9%87%91%E5%8D%AB/">
+                        <span class="chip bg-color">秦金卫</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%9E%81%E5%AE%A2%E5%A4%A7%E5%AD%A6/">
+                        <span class="chip bg-color">极客大学</span>
+                    </a>
+                    
+                    <a href="/tags/Java-%E8%BF%9B%E9%98%B6%E8%AE%AD%E7%BB%83%E8%90%A5/">
+                        <span class="chip bg-color">Java 进阶训练营</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="366499907"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">欧葵</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">212.4k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/cutieagain" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:330449857@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=330449857" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 330449857" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

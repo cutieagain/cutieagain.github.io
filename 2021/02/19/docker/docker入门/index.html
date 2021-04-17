@@ -465,21 +465,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-02-21
+                    2021-04-08
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.3k
+                    1.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    6 分
                 </div>
                 
 
@@ -528,7 +528,7 @@ docker run -dp 80:80 docker/getting-started #也可以写做这个，简写<span
 <ul>
 <li><code>-d</code> -以分离模式运行容器（在后台）</li>
 <li><code>-p 80:80</code> -将主机的端口80映射到容器中的端口80</li>
-<li><code>docker/getting-started</code> -要使用的图像</li>
+<li><code>docker/getting-started</code> -要使用的镜像</li>
 </ul>
 <p>运行后，可以点击docker中的dashboard查看上面起起来的容器，容器名称是随意创建的</p>
 <p><img src="https://cdn.jsdelivr.net/gh/cutieagain/images@main/20210220153738.png" alt="image-20210220153738649"></p>
@@ -547,7 +547,7 @@ docker run -dp 80:80 docker/getting-started #也可以写做这个，简写<span
 <p><img src="https://cdn.jsdelivr.net/gh/cutieagain/images@main/20210220160623.png" alt="image-20210220160623347"></p>
 <p>在app目录下执行以下命令，使用<code>docker build</code>命令构建容器映像。（不要忘记了后面那个点，表示当前目录）</p>
 <pre class="line-numbers language-none"><code class="language-none">docker build -t getting-started .<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>他使用了Dockerfile去创建一个新的容器镜像，你会发现好多“layers”被下载下来了，这是因为Dockerfile上以node:12-alpine为基础镜像，但是我们的机器上面没有这些镜像文件。下载完毕后，他们会被复制到我们的应用中，并使用<code>yarn</code>去安装应用的依赖。执行命令行使用的是系统默认的<code>cmd</code>软件。<code>-t</code>后面带的名字即镜像名称，方便我们之后去运行该镜像。</p>
+<p>他使用了Dockerfile去创建一个新的容器镜像，你会发现好多<code>layers</code>被下载下来了，这是因为Dockerfile上以<code>node:12-alpine</code>为基础镜像，但是我们的机器上面没有这些镜像文件。下载完毕后，他们会被复制到我们的应用中，并使用<code>yarn</code>去安装应用的依赖。执行命令行使用的是系统默认的<code>cmd</code>软件。<code>-t</code>后面带的名字即镜像名称，方便我们之后去运行该镜像。</p>
 <p>安装完毕，如下所示</p>
 <pre class="line-numbers language-none"><code class="language-none">cutiedeMacBook-Pro:app cutie$ docker build -t getting-started .
 Sending build context to Docker daemon  4.659MB
@@ -598,9 +598,44 @@ Successfully tagged getting-started:latest<span aria-hidden="true" class="line-n
 
 <p>然后在container/app中就能看到已经运行起来的容器</p>
 <p><img src="https://cdn.jsdelivr.net/gh/cutieagain/images@main/20210220172028.png" alt="image-20210220172028423"></p>
-<p>打开 <a target="_blank" rel="noopener" href="http://localhost:3000/">http://localhost:3000</a> ，看看运行起来的</p>
+<p>打开 <a target="_blank" rel="noopener" href="http://localhost:3000/">http://localhost:3000</a> ，看看运行起来的服务</p>
 <p>![image-20210220172211298](/Users/cutie/Library/Application Support/typora-user-images/image-20210220172211298.png)</p>
-<h2 id="docker常用命令【后续进行抽离完善】"><a href="#docker常用命令【后续进行抽离完善】" class="headerlink" title="docker常用命令【后续进行抽离完善】"></a>docker常用命令【后续进行抽离完善】</h2><p><code>docker ps</code> 查看正在运行的镜像</p>
+<h2 id="docker常用命令【后续进行抽离完善】"><a href="#docker常用命令【后续进行抽离完善】" class="headerlink" title="docker常用命令【后续进行抽离完善】"></a>docker常用命令【后续进行抽离完善】</h2><p><code>docker search ubuntu</code> 搜索 Docker Hub 中的镜像</p>
+<p><code>docker inspect redis:3.2</code> 获得镜像更详细的信息，也可以传入可以传入镜像 ID 或容器 ID</p>
+<p><code>docker -version</code> 查看 Docker 版本的命令，显示是社区版的</p>
+<pre class="line-numbers language-none"><code class="language-none">cutiedeMacBook-Pro:~ cutie$ docker version
+Client: Docker Engine - Community
+ Cloud integration: 1.0.9
+ Version:           20.10.5
+ API version:       1.41
+ Go version:        go1.13.15
+ Git commit:        55c4c88
+ Built:             Tue Mar  2 20:13:00 2021
+ OS/Arch:           darwin/amd64
+ Context:           default
+ Experimental:      true
+
+Server: Docker Engine - Community
+ Engine:
+  Version:          20.10.5
+  API version:      1.41 (minimum version 1.12)
+  Go version:       go1.13.15
+  Git commit:       363e9a8
+  Built:            Tue Mar  2 20:15:47 2021
+  OS/Arch:          linux/amd64
+  Experimental:     false
+ containerd:
+  Version:          1.4.3
+  GitCommit:        269548fa27e0089a8b8278fc4fc781d7f65a939b
+ runc:
+  Version:          1.0.0-rc92
+  GitCommit:        ff819c7e9184c13b7c2607fe6c30ae19403a7aff
+ docker-init:
+  Version:          0.19.0
+  GitCommit:        de40ad0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<p><code>docker ps</code> 查看正在运行的镜像</p>
 <pre class="line-numbers language-none"><code class="language-none">cutiedeMacBook-Pro:app cutie$ docker ps
 CONTAINER ID   IMAGE                    COMMAND                  CREATED          STATUS          PORTS                    NAMES
 6891eba76d5d   945f98aa1995             "docker-entrypoint.s…"   23 minutes ago   Up 23 minutes   0.0.0.0:3000-&gt;3000/tcp   amazing_babbage
@@ -631,48 +666,14 @@ Listening on port 3000<span aria-hidden="true" class="line-numbers-rows"><span><
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<h2 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h2><p>Q:</p>
+<p>A:</p>
+<p>Q:</p>
+<p>A:</p>
+<p>Q:</p>
+<p>A:</p>
+<p>Q:</p>
+<p>A:</p>
 
                 
             </div>
@@ -1213,7 +1214,7 @@ Listening on port 3000<span aria-hidden="true" class="line-numbers-rows"><span><
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">34.4k</span>&nbsp;字
+                class="white-color">212.4k</span>&nbsp;字
             
             
             

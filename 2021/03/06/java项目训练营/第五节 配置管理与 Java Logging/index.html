@@ -1,0 +1,1466 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="第五节 配置管理与 Java Logging, 欧葵小站">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>第五节 配置管理与 Java Logging | 欧葵小站</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">欧葵小站</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">欧葵小站</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/cutieagain" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/cutieagain" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">第五节 配置管理与 Java Logging</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E6%9E%81%E5%AE%A2%E5%A4%A7%E5%AD%A6/">
+                                <span class="chip bg-color">极客大学</span>
+                            </a>
+                        
+                            <a href="/tags/Java-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%90%A5/">
+                                <span class="chip bg-color">Java 项目实战营</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/java/" class="post-category">
+                                java
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-03-06
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2021-03-13
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2.9k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    11 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>小马哥的 Java 项目实战营 </p>
+<h1 id="Java-EE-项目-第五节-配置管理与-Java-Logging"><a href="#Java-EE-项目-第五节-配置管理与-Java-Logging" class="headerlink" title="Java EE 项目 - 第五节 配置管理与 Java Logging"></a>Java EE 项目 - 第五节 配置管理与 Java Logging</h1><p>小马哥（mercyblitz）</p>
+<p><strong>我是谁？</strong> </p>
+<p>小马哥（mercyblitz） </p>
+<p>•父亲 </p>
+<p>•Java 劝退师 </p>
+<p>• Apache Dubbo PMC </p>
+<p>• Spring Cloud Alibaba 架构师 </p>
+<p>•《Spring Boot 编程思想》作者<strong>议题</strong> </p>
+<p>• 配置管理 </p>
+<p>• Java Logging </p>
+<p>• 问答互动</p>
+<p><strong>配置管理</strong> </p>
+<h2 id="•-简介"><a href="#•-简介" class="headerlink" title="• 简介"></a>• 简介</h2><p>配置（Configuration）是应用程序重要的元信息（Metadata），几乎所有软件依 </p>
+<p>赖配置调控程序行为，比如 MySQL 中的 my.ini 文件，Apache Maven 的配置文件 </p>
+<p>settings.xml 文件，以及其项目管理文件 pom.xml。尽管配置常以文件的形式承载， </p>
+<p>然而并仅限于此。根据配置所处的物理位置，可分为本地配置（Local </p>
+<p>Configuration）和远程配置（Remote Configuration）。其中，本地配置相对于 </p>
+<p>程序的位置主要包括“内部配置（Internal Configuration）”以及“外部配置 </p>
+<p>（External Configuration）”，而远程配置则有“版本化配置（Versioned </p>
+<p>Configuration）”和“分布式配置（Distributed Configuration）”等实现。</p>
+<p><strong>配置管理</strong> </p>
+<h2 id="•-本地配置（Local-Configuration）"><a href="#•-本地配置（Local-Configuration）" class="headerlink" title="• 本地配置（Local Configuration）"></a>• 本地配置（Local Configuration）</h2><p>顾名思义，本地配置即配置存放在应用程序所在的物理环境，比如程序内部、物理机 </p>
+<p>器或虚拟化容器。存放在程序进程内部的配置称之为“内部配置（Internal </p>
+<p>Configuration）”，相反则是“外部配置（External Configuration）”。</p>
+<p><strong>配置管理</strong> </p>
+<h2 id="•-内部配置（Internal-Configuration）"><a href="#•-内部配置（Internal-Configuration）" class="headerlink" title="• 内部配置（Internal Configuration）"></a>• 内部配置（Internal Configuration）</h2><p>通常，内部配置是通过程序代码，甚至是硬编码（Hard Code）实现。虽然不推荐程 </p>
+<p>序使用硬编码来初始化配置，然而这并非是不可原谅的做法，如：</p>
+<p>![image-20210311200112943](/Users/cutie/Library/Application Support/typora-user-images/image-20210311200112943.png)</p>
+<p><strong>配置管理</strong> </p>
+<p>• 内部配置（Internal Configuration） </p>
+<p>内部配置并未与硬编码（Hard-Code）划上等号，如 Java 8 引入的共享线程池 </p>
+<p>java.util.concurrent.ForkJoinPool#commonPool()：</p>
+<p>![image-20210311200130987](/Users/cutie/Library/Application Support/typora-user-images/image-20210311200130987.png)</p>
+<p><strong>配置管理</strong> </p>
+<h2 id="•-外部配置（External-Configuration）"><a href="#•-外部配置（External-Configuration）" class="headerlink" title="• 外部配置（External Configuration）"></a>• 外部配置（External Configuration）</h2><p>外部配置是软件使用者、开发者以及运维者最常见和熟悉的配置手段，正如前文提到 </p>
+<p>的 MySQL my.ini 文件等。在 Java 生态体系中，JDK 层面允许程序读取来自 Java </p>
+<p>System Properties、操作系统环境变量以及 JNDI 等多方配置来源。</p>
+<p>![image-20210311200143438](/Users/cutie/Library/Application Support/typora-user-images/image-20210311200143438.png)</p>
+<p><strong>配置管理</strong> </p>
+<h2 id="•-远程配置（Remote-Configuration）"><a href="#•-远程配置（Remote-Configuration）" class="headerlink" title="• 远程配置（Remote Configuration）"></a>• 远程配置（Remote Configuration）</h2><p>在分布式场景中，远程配置的内容来自于配置运用端程序进程物理环境以外的环境， 其作用相当重要，是大多数互联网企业的基础设施标配，大多数实现采用 C/S（客户 端/服务器）架构。C/S 架构广义地包含了 B/S（浏览器/服务器）架构，这两种实现 均采用 B/S 架构，属于“分布式配置（Distributed Configuration）B/S 架构，然 而都归类于“分布式配置实现，即应用需要依赖一个专属的 HTTP 客户端，通过访问 远端的 Web 服务器获取配置。实现上，配置客户端版本化配置（Versioned Configuration）”。</p>
+<p>• Java 标准外部化配置 </p>
+<p>• Java SE </p>
+<p>• Java 系统属性 - java.lang.System#getProperties() </p>
+<p>• 操作系统环境变量 - java.lang.System#getenv() </p>
+<p>• 偏好配置 - java.util.prefs.Preferences </p>
+<p>• Java EE </p>
+<p>• Servlet 上下文配置 - javax.servlet.ServletContext#getInitParameter(String) </p>
+<p>• Servlet 配置 - javax.servlet.ServletConfig#getInitParameter(String) </p>
+<p>• JSP 配置 - javax.servlet.descriptor.JspConfigDescriptor </p>
+<p>• JNDI 配置 - javax.naming.Context#lookup(javax.naming.Name) </p>
+<p><strong>配置管理</strong></p>
+<h2 id="•-Apache-通用配置开源框架-Apache-Commons-Configuration"><a href="#•-Apache-通用配置开源框架-Apache-Commons-Configuration" class="headerlink" title="• Apache 通用配置开源框架 - Apache Commons Configuration"></a>• Apache 通用配置开源框架 - Apache Commons Configuration</h2><p>• 支持数据源 </p>
+<p>• Properties files </p>
+<p>• XML documents </p>
+<p>• Windows INI files </p>
+<p>• Property list files (plist) </p>
+<p>• JNDI </p>
+<p>• JDBC Datasource </p>
+<p>• System properties </p>
+<p>• Applet parameters </p>
+<p>• Servlet parameters </p>
+<p><strong>配置管理</strong></p>
+<h2 id="•-Apache-Commons-Configuration-1-x-配置源"><a href="#•-Apache-Commons-Configuration-1-x-配置源" class="headerlink" title="• Apache Commons Configuration 1.x - 配置源"></a>• Apache Commons Configuration 1.x - 配置源</h2><p>• 接口信息 </p>
+<p>• PropertiesConfiguration Loads configuration values from a properties file </p>
+<p>• XMLConfiguration Takes values from an XML document </p>
+<p>• INIConfiguration Loads the values from a .ini file as used by Windows </p>
+<p>• PropertyListConfiguration Loads values from an OpenStep .plist file </p>
+<p>• JNDIConfiguration Using a key in the JNDI tree, can retrieve values </p>
+<p>• BaseConfiguration An in-memory method of populating a Configuration object </p>
+<p>• HierarchicalConfiguration An in-memory Configuration object </p>
+<p>• SystemConfiguration A configuration using the system properties </p>
+<p><strong>配置管理</strong></p>
+<h3 id="•-Apache-Commons-Configuration-1-x-数据类型"><a href="#•-Apache-Commons-Configuration-1-x-数据类型" class="headerlink" title="• Apache Commons Configuration 1.x - 数据类型"></a>• Apache Commons Configuration 1.x - 数据类型</h3><p>• BigDecimal </p>
+<p>• BigInteger </p>
+<p>• boolean </p>
+<p>• byte </p>
+<p>• double </p>
+<p>• float </p>
+<p>• int </p>
+<p>• long </p>
+<p>• short </p>
+<p>• String </p>
+<p><strong>配置管理</strong></p>
+<h3 id="•-Apache-Commons-Configuration-1-x-操作方法"><a href="#•-Apache-Commons-Configuration-1-x-操作方法" class="headerlink" title="• Apache Commons Configuration 1.x - 操作方法"></a>• Apache Commons Configuration 1.x - 操作方法</h3><p>• addProperty() </p>
+<p>• Adds a new property to the configuration. If this property already exists, another value is </p>
+<p>added to it (so it becomes a multi-valued property) </p>
+<p>• clearProperty() </p>
+<p>• Removes the specified property from the configuration </p>
+<p>• setProperty() </p>
+<p>• Overwrites the value of the specified property. This is the same as removing the property and </p>
+<p>then calling addProperty() with the new property value. </p>
+<p>• clear() </p>
+<p>• Wipes out the whole configuration</p>
+<p><strong>配置管理</strong></p>
+<h3 id="•-Apache-Commons-Configuration-1-x-使用"><a href="#•-Apache-Commons-Configuration-1-x-使用" class="headerlink" title="• Apache Commons Configuration 1.x - 使用"></a>• Apache Commons Configuration 1.x - 使用</h3><p>• Maven 坐标 </p>
+<dependency> 
+
+<p><groupid>commons-configuration</groupid> </p>
+<p><artifactid>commons-configuration</artifactid> </p>
+<p><version>1.10</version> </p>
+</dependency> 
+
+<p>• 依赖 </p>
+<p>• <a target="_blank" rel="noopener" href="http://commons.apache.org/proper/commons-">http://commons.apache.org/proper/commons-</a> </p>
+<p>configuration/dependencies_1_10.html [点击访问] </p>
+<h2 id="配置管理"><a href="#配置管理" class="headerlink" title="配置管理"></a><strong>配置管理</strong></h2><h2 id="Java-Logging"><a href="#Java-Logging" class="headerlink" title="Java Logging"></a><strong>Java Logging</strong></h2><h3 id="•-简介-1"><a href="#•-简介-1" class="headerlink" title="• 简介"></a>• 简介</h3><p>Java日志API，在包中介绍java.util.logging文件，通过生成适合最终用户、系统管理 </p>
+<p>员、现场服务工程师和软件开发团队分析的日志报告，促进客户站点的软件服务和维护。 </p>
+<p>日志api捕获应用程序或平台中的安全故障、配置错误、性能瓶颈和/或bug等信息。 </p>
+<p>核心包支持将纯文本或XML格式的日志记录传递到内存、输出流、控制台、文件和套 </p>
+<p>接字。此外，日志API能够与主机操作系统上已经存在的日志服务进行交互。</p>
+<p><strong>Java Logging</strong> </p>
+<h3 id="•-控制流程"><a href="#•-控制流程" class="headerlink" title="• 控制流程"></a>• 控制流程</h3><p>应用程序对 Logger 对象进行日志记录调用。记录器被组织在一个层次化的名称空间 </p>
+<p>中，子记录器可以从名称空间中的父记录器继承一些日志属性。 </p>
+<p>应用程序对 Logger 对象进行日志记录调用。这些 Logger 对象分配传递给处理程序 </p>
+<p>对象以供发布的 LogRecord 对象。 Loggers 和 Handlers 都可以使用日志级别（Levels） </p>
+<p>和（可选） Filters 来决定是否对特定的 LogRecord 感兴趣。当需要在外部发布 </p>
+<p>LogRecord 时，Handlers 可以（可选）使用 Formatter 在将消息发布到 I/O 流之前对 </p>
+<p>其进行本地化和格式化。</p>
+<p><strong>Java Logging</strong> </p>
+<p>• 控制流程</p>
+<p><img src="https://cdn.jsdelivr.net/gh/cutieagain/images@main/20210311200249.png" alt="image-20210311200239446"></p>
+<p><strong>Java Logging</strong> </p>
+<h3 id="•-日志级别（Levels）"><a href="#•-日志级别（Levels）" class="headerlink" title="• 日志级别（Levels）"></a>• 日志级别（Levels）</h3><p>每个日志消息都有一个关联的日志级别。该级别粗略地说明了日志消息的重要性和紧 </p>
+<p>迫性。日志级对象封装了一个整数值，值越大表示优先级越高。 </p>
+<p>Level类定义了七个标准日志级别，从FINEST（最低优先级，具有最低值）到SEVERE </p>
+<p>（最高优先级，具有最高值）。 </p>
+<p>API - java.util.logging.Level</p>
+<p><strong>Java Logging</strong> </p>
+<p>• 日志级别（Levels） </p>
+<p>每个日志消息都有一个关联的日志级别。该级别粗略地说明了日志消息的重要性和紧迫 </p>
+<p>性。日志级对象封装了一个整数值，值越大表示优先级越高。 </p>
+<p>Level类定义了七个标准日志级别，从FINEST（最低优先级，具有最低值）到SEVERE </p>
+<p>（最高优先级，具有最高值）。 </p>
+<p>API - java.util.logging.Level</p>
+<p><strong>Java Logging</strong> </p>
+<h3 id="•-日志对象（Loggers）"><a href="#•-日志对象（Loggers）" class="headerlink" title="• 日志对象（Loggers）"></a>• 日志对象（Loggers）</h3><p>客户机代码向 Logger 对象发送日志请求。每个 Logger 都跟踪它感兴趣的日志级别， </p>
+<p>并丢弃低于此级别的日志请求。 </p>
+<p>Logger 通常使用 “.” 分隔名称（如”java.awt”. 名称空间是分层的，由 LogManager管 </p>
+<p>理。名称空间通常应与Java打包名称空间保持一致，但不需要盲目跟随。 </p>
+<p>Logger 在记录名称空间中记录其父 Logger。Logger 的父级是其在记录名称空间中最 </p>
+<p>接近的现有祖先。根日志程式（名称为””）没有父级。匿名日志记录者都被授予根日志记 </p>
+<p>录者作为其父。</p>
+<p><strong>Java Logging</strong> </p>
+<p>• 日志对象（Loggers） </p>
+<p>Logger 可从其在记录者名称空间中的父类继承各种属性。特别是， Logger 可继承： </p>
+<p>• Levels - 如果一Logger的level设置为空，则该Logger将使用一个有效的level，该level将通过走上父树并 </p>
+<p>使用第一个非空level获得。 </p>
+<p>• Handlers - 默认情况下， Logger 会将任何输出消息记录到其父级的 Handlers 中，依此在树中循环上升。 </p>
+<p>• ResourceBundle 名称 - 如果 Logger 的资源包名称为空，则其将继承为其父级定义的任何资源包名称， </p>
+<p>依此在树上循环。</p>
+<p><strong>Java Logging</strong> </p>
+<h3 id="•-日志处理器（Handlers）"><a href="#•-日志处理器（Handlers）" class="headerlink" title="• 日志处理器（Handlers）"></a>• 日志处理器（Handlers）</h3><p>Java SE 提供以下日志处理器实现： </p>
+<p>• StreamHandler - 一个简单的处理程序，用于将格式化记录写入OutputStream </p>
+<p>• ConsoleHandler - 向其写入格式记录的简单处理程序System.err </p>
+<p>• FileHandler - 将已格式化的日志记录写入一个文件或一组循环日志文件的处理程序 </p>
+<p>• SocketHandler - 将已格式化的日志记录写入远程TCP端口的处理程序 </p>
+<p>• MemoryHandler - 在内存中缓冲日志记录的处理程序</p>
+<p><strong>Java Logging</strong> </p>
+<h3 id="•-日志格式化器（Formatters）"><a href="#•-日志格式化器（Formatters）" class="headerlink" title="• 日志格式化器（Formatters）"></a>• 日志格式化器（Formatters）</h3><p>Java SE 提供两种 Formatter 实现： </p>
+<p>• SimpleFormatter - 编写简要的“人类可读”的日志记录摘要 </p>
+<p>• XMLFormatter - 编写详细的XML结构信息</p>
+<p><strong>Java Logging</strong> </p>
+<h3 id="•-日志管理器（LogManager）"><a href="#•-日志管理器（LogManager）" class="headerlink" title="• 日志管理器（LogManager）"></a>• 日志管理器（LogManager）</h3><p>全局的 LogManager 对象，用于跟踪全局日志记录信息。LogManager 对象可以使用 </p>
+<p>静态 LogManager.getLogManager 方法获得。在 LogManager 初始化期间根据系统属 </p>
+<p>性创建的。此属性允许容器应用程序（如EJB容器）用其自身的LogManager子类代替默认 </p>
+<p>类。</p>
+<p>LogManager 对象包括： </p>
+<p>• 命名的 Logger 分层名称空间 </p>
+<p>• 从配置文件中读取的一组日志记录控制属性</p>
+<p><strong>Java Logging</strong> </p>
+<h3 id="•-日志配置文件（Configuration-File）"><a href="#•-日志配置文件（Configuration-File）" class="headerlink" title="• 日志配置文件（Configuration File）"></a>• 日志配置文件（Configuration File）</h3><p>在启动时读取的日志配置文件来初始化日志配置。此日志配置文件为标准 </p>
+<p>java.util.Properties 格式。或者，可以通过指定可用于读取初始化属性的类来初始化日志 </p>
+<p>记录配置。此机制允许从任意源（如LDAP、JDBC等）读取配置数据。有关详细信息，请 </p>
+<p>参阅LogManager API规范。 </p>
+<p>有一小部分全局配置信息。这在 LogManager 类的描述中指定，并包括在启动期间安装 </p>
+<p>的根级别处理程序列表。 </p>
+<p>初始配置可指定特定记录者的级别。这些级别应用于命名层次结构中的命名日志记录程 </p>
+<p>序及其下的任何日志记录程序。级别按在配置文件中定义的顺序应用。</p>
+<p><strong>Java Logging</strong> </p>
+<h3 id="•-日志默认配置（Default-Configuration）"><a href="#•-日志默认配置（Default-Configuration）" class="headerlink" title="• 日志默认配置（Default Configuration）"></a>• 日志默认配置（Default Configuration）</h3><p>JRE附带的默认日志记录配置仅为一个默认值，并可由ISV、系统管理员和最终用户覆盖 </p>
+<p>默认配置仅使用有限的磁盘空间。它不会向用户大量提供信息，但确保始终获取关键故 </p>
+<p>障信息</p>
+<p>默认配置在根日志记录程序上建立一个处理程序，用于向控制台发送输出</p>
+<p><strong>Java Logging</strong> </p>
+<h3 id="•-日志动态配置更新（Dynamic-Configuration-Updates）"><a href="#•-日志动态配置更新（Dynamic-Configuration-Updates）" class="headerlink" title="• 日志动态配置更新（Dynamic Configuration Updates）"></a>• 日志动态配置更新（Dynamic Configuration Updates）</h3><p>程序能够在运行期动态地更新以下配置： </p>
+<p>• FileHandlers, MemoryHandlers, 和 ConsoleHandlers 动态创建和属性更新 </p>
+<p>• Handlers 能被动态地添加或移除 </p>
+<p>• 新的 Logger 对象能被动态地创建，并能关联指定的 Handlers </p>
+<p>• 特定 Handlers 上的级别能被动态地设置</p>
+<p><strong>Java Logging</strong> </p>
+<h3 id="•-日志本地化（Localization）"><a href="#•-日志本地化（Localization）" class="headerlink" title="• 日志本地化（Localization）"></a>• 日志本地化（Localization）</h3><p>日志消息可能需要本地化。 </p>
+<p>每个 Logger 可能有一个与其相关联的资源包名称。相应的资源包可用于在原始消息串 </p>
+<p>和本地化消息串之间进行映射。 </p>
+<p>通常，本地化将由 Formatter 执行。为方便起见， Formatter 类提供了一个提供一些基 </p>
+<p>本本地化和格式设置支持的 Format 消息方法。</p>
+<h2 id="配置管理-1"><a href="#配置管理-1" class="headerlink" title="配置管理"></a>配置管理</h2><h3 id="设计技巧"><a href="#设计技巧" class="headerlink" title="设计技巧"></a>设计技巧</h3><p>有限读取外部配置（存在多来源，可能存在优先级），将内部配置作为默认（兜底）策略</p>
+<p>当存在多外源外部配置时候，员作用范围岳晓，通常越优先，比如Java System#getProperties()（当前JVM进程）和操作系统环境变量（当前用户或者系统共享）</p>
+<h3 id="整合MicroProfile-Config"><a href="#整合MicroProfile-Config" class="headerlink" title="整合MicroProfile Config"></a>整合MicroProfile Config</h3>
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">欧葵</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://cutieagain.github.io/2021/03/06/java%E9%A1%B9%E7%9B%AE%E8%AE%AD%E7%BB%83%E8%90%A5/%E7%AC%AC%E4%BA%94%E8%8A%82%20%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86%E4%B8%8E%20Java%20Logging/">http://cutieagain.github.io/2021/03/06/java%E9%A1%B9%E7%9B%AE%E8%AE%AD%E7%BB%83%E8%90%A5/%E7%AC%AC%E4%BA%94%E8%8A%82%20%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86%E4%B8%8E%20Java%20Logging/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">欧葵</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E6%9E%81%E5%AE%A2%E5%A4%A7%E5%AD%A6/">
+                                    <span class="chip bg-color">极客大学</span>
+                                </a>
+                            
+                                <a href="/tags/Java-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%90%A5/">
+                                    <span class="chip bg-color">Java 项目实战营</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2021/03/06/java%E9%A1%B9%E7%9B%AE%E8%AE%AD%E7%BB%83%E8%90%A5/%E7%AC%AC%E5%9B%9B%E8%8A%82%20%E6%95%B0%E6%8D%AE%E6%A0%A1%E9%AA%8C/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="第四节 数据校验">
+                        
+                        <span class="card-title">第四节 数据校验</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-06
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/java/" class="post-category">
+                                    java
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%9E%81%E5%AE%A2%E5%A4%A7%E5%AD%A6/">
+                        <span class="chip bg-color">极客大学</span>
+                    </a>
+                    
+                    <a href="/tags/Java-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%90%A5/">
+                        <span class="chip bg-color">Java 项目实战营</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/02/27/java%E9%A1%B9%E7%9B%AE%E8%AE%AD%E7%BB%83%E8%90%A5/%E7%AC%AC%E4%BA%8C%E8%8A%82-%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E4%B9%8B-JDBC/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="第二节 数据存储之 JDBC">
+                        
+                        <span class="card-title">第二节 数据存储之 JDBC</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-27
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/java/" class="post-category">
+                                    java
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%9E%81%E5%AE%A2%E5%A4%A7%E5%AD%A6/">
+                        <span class="chip bg-color">极客大学</span>
+                    </a>
+                    
+                    <a href="/tags/Java-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98%E8%90%A5/">
+                        <span class="chip bg-color">Java 项目实战营</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="366499907"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">欧葵</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">212.4k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/cutieagain" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:330449857@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=330449857" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 330449857" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
